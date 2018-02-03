@@ -41,34 +41,24 @@ public class StargazerUtil {
         proxy.preInit(event);
         StargazerConfig.preInit(event);
 
-        if (Loader.isModLoaded("betterquesting")){
-            if (BQModule){
+        if (Loader.isModLoaded("betterquesting") && BQModule){
                 BetterQuestingCompat.setup();
-            }
         }
 
-        if (Loader.isModLoaded("botania")){
-            if (BotaniaModule){
+        if (Loader.isModLoaded("botania") && BotaniaModule){
                 BotaniaCompat.setup();
-            }
         }
 
-        if (Loader.isModLoaded("gamestages")){
-            if (GameStageModule){
+        if (Loader.isModLoaded("gamestages") && GameStageModule){
                 GameStagesCompat.setup();
-            }
         }
 
-        if (Loader.isModLoaded("skillable")){
-            if (SkillableModule){
+        if (Loader.isModLoaded("skillable") && SkillableModule){
                 SkillableCompat.setup();
-            }
         }
 
-        if (Loader.isModLoaded("tinkersconstruct")){
-            if (TinkersModule){
+        if (Loader.isModLoaded("tinkersconstruct") && TinkersModule){
                 TinkersCompat.setup();
-            }
         }
     }
 

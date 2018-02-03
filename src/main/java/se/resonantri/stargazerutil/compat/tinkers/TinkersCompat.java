@@ -8,8 +8,12 @@ import se.resonantri.stargazerutil.compat.tinkers.materials.BWMMaterials;
 import static se.resonantri.stargazerutil.utils.StargazerConfig.StargazerConfigs.TinkersConstruct.ModifierDump;
 
 public class TinkersCompat {
-    public static void setup(){
+    public static AssortedMaterials assortedMaterials;
+    public static BWMMaterials bwmMaterials;
 
+    public static void setup(){
+        assortedMaterials = new AssortedMaterials();
+        bwmMaterials = new BWMMaterials();
     }
 
     public static void registerCommands(){
