@@ -20,13 +20,13 @@ import static se.resonantri.stargazerutil.utils.StargazerConfig.StargazerConfigs
 import static se.resonantri.stargazerutil.utils.UtilityMethods.nextIntInclusive;
 import static se.resonantri.stargazerutil.utils.UtilityMethods.tryPercentage;
 
-public class TraitLuckyMiner extends Trait{
+public class UnlockableLuckyMiner extends Trait{
 
     public static int fortuneLevel;
 
     public static final Map<Block, ItemStack> map = new HashMap<>();
 
-    public TraitLuckyMiner() {
+    public UnlockableLuckyMiner() {
         super("lucky_miner", 3, 2, luckyMinerCost, "mining:16");
     }
 
@@ -45,7 +45,7 @@ public class TraitLuckyMiner extends Trait{
         fortuneLevel = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, player.getHeldItem(player.getActiveHand()));
         if (ConditionHelper.hasRightTool(player, blockState, "pickaxe", Item.ToolMaterial.IRON.getHarvestLevel())){
             if (EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, player.getHeldItem(player.getActiveHand())) == 0){
-                if (tryPercentage(0.50f)){
+                if (tryPercentage(0.50d)){
                     ItemStack stack = map.get(blockState.getBlock());
                     if (stack != null && !stack.isEmpty()){
                         event.getDrops().add(stack.copy());

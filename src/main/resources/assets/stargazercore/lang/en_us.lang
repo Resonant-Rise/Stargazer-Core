@@ -1,7 +1,12 @@
-# Skill Names
+##############
+#   Skills   #
+##############
 skillable.skill.alchemy=Alchemy
 
-# Unlockable Names
+
+###################
+#   Unlockables   #
+###################
 skillable.unlock.accelerated=Accelerated
 skillable.unlock.accelerated.desc=Hazardous exposure to potion components have infused you with energetic compounds, granting you passive §6Haste§r 2, §bSpeed§r 2
 
@@ -10,3 +15,22 @@ skillable.unlock.fence_jumper.desc=Due to your extreme agileness you've learnt t
 
 skillable.unlock.lucky_miner=Lucky Miner
 skillable.unlock.lucky_miner.desc=Through-out your years as a miner you've started gaining the favor of the patron of miners granting you extra drops from: §aEmerald§r, §9Lapis§r, §cRedstone§r and §fQuartz§r Ore.
+
+
+#################
+#   Materials   #
+#################
+material.tallow.name=Tallow
+material.concentrated_hellfire.name=Hellfire
+material.diamond.name=Diamond
+material.soulsteel.name=Soulforged Steel
+material.carbonmesh.name=Carbon Mesh
+material.starmetal.name=Starmetal
+
+
+##############
+#   Traits   #
+##############
+modifier.buttery.name=Buttery
+modifier.infernal.name=Infernal
+modifier.starascribed.name=Starascribed

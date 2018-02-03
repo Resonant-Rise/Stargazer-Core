@@ -7,9 +7,7 @@ import net.minecraft.server.MinecraftServer;
 
 import java.util.List;
 
-import static crafttweaker.mc1120.commands.SpecialMessagesChat.getClickableCommandText;
-import static crafttweaker.mc1120.commands.SpecialMessagesChat.getLinkToCraftTweakerLog;
-import static crafttweaker.mc1120.commands.SpecialMessagesChat.getNormalMessage;
+import static crafttweaker.mc1120.commands.SpecialMessagesChat.*;
 
 public abstract class MultiBlockCommand extends CraftTweakerCommand{
     public MultiBlockCommand(String setName) {

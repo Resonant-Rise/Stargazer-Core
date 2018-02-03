@@ -8,7 +8,7 @@ public class SkillMiningAddon extends SkillMining{
 
     @Override
     public void initUnlockables() {
-        addUnlockable(new TraitLuckyMiner());
+        addUnlockable(new UnlockableLuckyMiner());
         addUnlockable(new TraitFossilDigger());
         addUnlockable(new TraitObsidianSmasher());
     }

@@ -10,6 +10,6 @@ public class SkillAlchemy extends Skill {
 
     @Override
     public void initUnlockables() {
-        addUnlockable(new TraitAccelerated());
+        addUnlockable(new UnlockableAccelerated());
     }
 }

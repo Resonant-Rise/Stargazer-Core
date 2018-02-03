@@ -1,11 +1,6 @@
 package se.resonantri.stargazerutil.compat.skillable.compat.immersiveengineering.Implementation;
 
-import blusunrize.immersiveengineering.api.MultiblockHandler.*;
 import com.google.common.collect.Maps;
-import net.darkhax.gamestages.capabilities.PlayerDataHandler;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import se.resonantri.stargazerutil.compat.skillable.compat.immersiveengineering.MultiBlockSkill;
 
 import java.util.Map;

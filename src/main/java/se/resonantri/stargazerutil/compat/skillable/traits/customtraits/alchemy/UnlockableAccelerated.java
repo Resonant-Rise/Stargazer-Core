@@ -7,8 +7,8 @@ import vazkii.skillable.skill.base.Trait;
 
 import static se.resonantri.stargazerutil.utils.StargazerConfig.StargazerConfigs.Skillable.acceleratedCost;
 
-public class TraitAccelerated extends Trait {
-    public TraitAccelerated() {
+public class UnlockableAccelerated extends Trait {
+    public UnlockableAccelerated() {
         super("accelerated", 4, 2, acceleratedCost, "alchemy:16");
     }
 
