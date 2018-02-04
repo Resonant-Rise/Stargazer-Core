@@ -46,7 +46,6 @@ public class AssortedMaterials {
     public void setupMaterialStats(FMLPreInitializationEvent event){
         registerToolMaterialStats();
         registerBowMaterialStats();
-        integrateToolMaterials();
     }
 
     @Subscribe
@@ -72,14 +71,9 @@ public class AssortedMaterials {
     }
 
     @Subscribe
-    public void setupClientPostInit(FMLPostInitializationEvent event){
+    public static void setupClientPostInit(FMLPostInitializationEvent event){
         carbonMesh.setRenderInfo(new MaterialRenderInfo.Metal(0x262626, 0.1f, 0.2f, 0f));
         starmetal.setRenderInfo(new MaterialRenderInfo.Metal(0x000099, 0.1f, 0.2f, 0f));
-    }
-
-    private void integrateToolMaterials(){
-        TinkerRegistry.integrate(carbonMesh).preInit();
-        TinkerRegistry.integrate(starmetal).preInit();
     }
 
     private void registerToolMaterialStats(){

@@ -15,9 +15,13 @@ import se.resonantri.stargazerutil.compat.betterquesting.BetterQuestingCompat;
 import se.resonantri.stargazerutil.compat.botania.BotaniaCompat;
 import se.resonantri.stargazerutil.compat.gamestages.GameStagesCompat;
 import se.resonantri.stargazerutil.compat.skillable.SkillableCompat;
+import se.resonantri.stargazerutil.compat.tinkers.SGTinkersIntegration;
 import se.resonantri.stargazerutil.compat.tinkers.TinkersCompat;
+import se.resonantri.stargazerutil.compat.tinkers.materials.AssortedMaterials;
+import se.resonantri.stargazerutil.compat.tinkers.materials.BWMMaterials;
 import se.resonantri.stargazerutil.utils.Constants;
 import se.resonantri.stargazerutil.utils.StargazerConfig;
+import slimeknights.mantle.pulsar.control.PulseManager;
 
 import static se.resonantri.stargazerutil.utils.StargazerConfig.StargazerConfigs.Modules.*;
 
@@ -31,15 +35,22 @@ public class StargazerUtil {
     @SidedProxy(clientSide = "se.resonantri.stargazerutil.client.ClientProxy", serverSide = "se.resonantri.stargazerutil.common.CommonProxy")
     public static CommonProxy proxy;
 
+    public static PulseManager pulseManager = new PulseManager(StargazerConfig.pulseConfig);
+
     @Instance
     public static StargazerUtil instance;
     public static Logger logger;
+
+
+    static {
+        pulseManager.registerPulse(new AssortedMaterials());
+        pulseManager.registerPulse(new BWMMaterials());
+    }
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
         logger = event.getModLog();
         proxy.preInit(event);
-        StargazerConfig.preInit(event);
 
         if (Loader.isModLoaded("betterquesting") && BQModule){
                 BetterQuestingCompat.setup();
@@ -58,7 +69,8 @@ public class StargazerUtil {
         }
 
         if (Loader.isModLoaded("tinkersconstruct") && TinkersModule){
-                TinkersCompat.setup();
+            TinkersCompat.setup();
+            SGTinkersIntegration.preInit(event);
         }
     }
 
@@ -68,6 +80,10 @@ public class StargazerUtil {
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event){
+        StargazerConfig.postInit(event);
+        if (Loader.isModLoaded("tinkersconstruct") && TinkersModule){
+            SGTinkersIntegration.postInit(event);
+        }
     }
 
     @EventHandler

@@ -4,10 +4,12 @@ import crafttweaker.mc1120.commands.CTChatCommand;
 import se.resonantri.stargazerutil.compat.tinkers.commands.ModifierDumpCommand;
 import se.resonantri.stargazerutil.compat.tinkers.materials.AssortedMaterials;
 import se.resonantri.stargazerutil.compat.tinkers.materials.BWMMaterials;
+import slimeknights.mantle.pulsar.pulse.Pulse;
+import slimeknights.tconstruct.common.TinkerPulse;
 
 import static se.resonantri.stargazerutil.utils.StargazerConfig.StargazerConfigs.TinkersConstruct.ModifierDump;
 
-public class TinkersCompat {
+public class TinkersCompat extends TinkerPulse{
     public static AssortedMaterials assortedMaterials;
     public static BWMMaterials bwmMaterials;
 

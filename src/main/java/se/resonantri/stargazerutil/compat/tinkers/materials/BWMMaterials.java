@@ -48,14 +48,6 @@ public final class BWMMaterials {
     @Subscribe
     public void setupMaterialStats(FMLPreInitializationEvent event){
         registerToolMaterialStats();
-        integrateToolMaterials();
-    }
-
-    private void integrateToolMaterials(){
-        TinkerRegistry.integrate(concHellfire).preInit();
-        TinkerRegistry.integrate(diamond).preInit();
-        TinkerRegistry.integrate(soulsteel).preInit();
-        TinkerRegistry.integrate(tallow).preInit();
     }
 
     private void registerToolMaterialStats(){
@@ -127,7 +119,7 @@ public final class BWMMaterials {
     ///     PostInit   ///
     //////////////////////
     @Subscribe
-    public void setupClientPostInit(FMLPostInitializationEvent event){
+    public static void setupClientPostInit(FMLPostInitializationEvent event){
         concHellfire.setRenderInfo(new MaterialRenderInfo.Metal(0x990000, 0.1f, 0.2f, 0f));
         diamond.setRenderInfo(new MaterialRenderInfo.Metal(0x19C9C9, 0.1f, 0.2f, 0f));
         soulsteel.setRenderInfo(new MaterialRenderInfo.Metal(0x374545, 0.1f, 0.2f, 0f));

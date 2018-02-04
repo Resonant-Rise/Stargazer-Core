@@ -2,10 +2,15 @@ package se.resonantri.stargazerutil.utils;
 
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.Config.Comment;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import slimeknights.mantle.pulsar.config.ForgeCFG;
 
 public class StargazerConfig {
-    public static void preInit(FMLPreInitializationEvent e){
+
+    public static ForgeCFG pulseConfig = new ForgeCFG("StargazerTinkerModules", "Modules");
+
+    public static void postInit(FMLPostInitializationEvent e){
 
     }
 
