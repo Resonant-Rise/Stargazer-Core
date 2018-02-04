@@ -6,6 +6,7 @@ import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import org.apache.logging.log4j.Level;
 import slimeknights.mantle.pulsar.pulse.Pulse;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.client.MaterialRenderInfo;
@@ -16,13 +17,14 @@ import slimeknights.tconstruct.library.materials.Material;
 
 import java.util.List;
 
+import static se.resonantri.stargazerutil.StargazerUtil.logger;
 import static se.resonantri.stargazerutil.compat.tinkers.CustomTraits.buttery;
 import static se.resonantri.stargazerutil.compat.tinkers.CustomTraits.infernal;
 import static slimeknights.tconstruct.library.materials.MaterialTypes.HEAD;
 import static slimeknights.tconstruct.library.utils.HarvestLevels.*;
 import static slimeknights.tconstruct.tools.TinkerTraits.*;
 
-@Pulse(id = BWMMaterials.PulseId, description = "All the tool materials added by StargazerUtils", pulsesRequired = BWMMaterials.PulseId, forced = true)
+@Pulse(id = BWMMaterials.PulseId, description = "All the tool materials added by StargazerUtils", modsRequired = "tconstruct", forced = true)
 public final class BWMMaterials {
     static final String PulseId = "AssortedMaterials";
 
@@ -41,6 +43,14 @@ public final class BWMMaterials {
         return mat;
     }
 
+    public static void preInit(FMLPreInitializationEvent event){
+    }
+
+    public static void Init(FMLInitializationEvent event){
+    }
+
+    public static void postInit(FMLPostInitializationEvent event){
+    }
 
     //////////////////////
     ///     PreInit    ///
@@ -48,10 +58,11 @@ public final class BWMMaterials {
     @Subscribe
     public void setupMaterialStats(FMLPreInitializationEvent event){
         registerToolMaterialStats();
+        logger.printf(Level.DEBUG, "BWM Materials PreInit");
     }
 
     private void registerToolMaterialStats(){
-        if (isBWMLoaded){
+        if (!isBWMLoaded){
             TinkerRegistry.addMaterialStats(tallow,
                     new HeadMaterialStats(16, 9.0f, 1.0f, STONE),
                     new HandleMaterialStats(0.1f,0),
@@ -84,12 +95,13 @@ public final class BWMMaterials {
     //////////////////////
     @Subscribe
     public void setupMaterials(FMLInitializationEvent event){
-        if (isBWMLoaded){
+        if (!isBWMLoaded){
             // Tallow
             tallow.setCraftable(true);
             tallow.addItem("tallow", 1, Material.VALUE_Ingot);
             tallow.setRepresentativeItem("tallow");
             tallow.addTrait(buttery);
+            logger.printf(Level.INFO, "Tallow Init");
 
             // Concentrated Hellfire
             concHellfire.setCraftable(true);
@@ -98,12 +110,14 @@ public final class BWMMaterials {
             concHellfire.setRepresentativeItem("ingotConcentratedHellfire");
             concHellfire.addTrait(autosmelt, HEAD);
             concHellfire.addTrait(infernal, HEAD);
+            logger.printf(Level.INFO, "Concentrated Hellfire Init");
 
             // Diamond Ingot
             diamond.setCraftable(true);
             diamond.addItem("ingotDiamond", 1, Material.VALUE_Ingot);
             diamond.setRepresentativeItem("ingotDiamond");
             diamond.addTrait(duritos, HEAD);
+            logger.printf(Level.INFO, "Diamond Init");
 
             // Soulforged Steel
             soulsteel.setCraftable(true);
@@ -111,6 +125,7 @@ public final class BWMMaterials {
             soulsteel.setRepresentativeItem("ingotSoulforgedSteel");
             soulsteel.addTrait(unnatural, HEAD);
             soulsteel.addTrait(sharp);
+            logger.printf(Level.INFO, "Soulsteel Init");
         }
     }
 
@@ -119,10 +134,11 @@ public final class BWMMaterials {
     ///     PostInit   ///
     //////////////////////
     @Subscribe
-    public static void setupClientPostInit(FMLPostInitializationEvent event){
+    public void setupClientPostInit(FMLPostInitializationEvent event){
         concHellfire.setRenderInfo(new MaterialRenderInfo.Metal(0x990000, 0.1f, 0.2f, 0f));
         diamond.setRenderInfo(new MaterialRenderInfo.Metal(0x19C9C9, 0.1f, 0.2f, 0f));
         soulsteel.setRenderInfo(new MaterialRenderInfo.Metal(0x374545, 0.1f, 0.2f, 0f));
         tallow.setRenderInfo(new MaterialRenderInfo.Metal(0xF6CB4C, 0.1f, 0.2f, 0f));
+        logger.printf(Level.INFO, "BWM ClientPostInit");
     }
 }

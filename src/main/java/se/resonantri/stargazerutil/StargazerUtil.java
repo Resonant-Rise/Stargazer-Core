@@ -9,6 +9,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
 import se.resonantri.stargazerutil.common.CommonProxy;
 import se.resonantri.stargazerutil.compat.betterquesting.BetterQuestingCompat;
@@ -52,6 +53,8 @@ public class StargazerUtil {
         logger = event.getModLog();
         proxy.preInit(event);
 
+        TinkersCompat.setup();
+
         if (Loader.isModLoaded("betterquesting") && BQModule){
                 BetterQuestingCompat.setup();
         }
@@ -68,21 +71,65 @@ public class StargazerUtil {
                 SkillableCompat.setup();
         }
 
-        if (Loader.isModLoaded("tinkersconstruct") && TinkersModule){
+        if (Loader.isModLoaded("tconstruct") && TinkersModule){
             TinkersCompat.setup();
-            SGTinkersIntegration.preInit(event);
+            AssortedMaterials.preInit(event);
+            BWMMaterials.preInit(event);
+            logger.printf(Level.INFO, "Main Mod file PreInit");
         }
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
+        if (Loader.isModLoaded("betterquesting") && BQModule){
+            BetterQuestingCompat.setup();
+        }
+
+        if (Loader.isModLoaded("botania") && BotaniaModule){
+            BotaniaCompat.setup();
+        }
+
+        if (Loader.isModLoaded("gamestages") && GameStageModule){
+            GameStagesCompat.setup();
+        }
+
+        if (Loader.isModLoaded("skillable") && SkillableModule){
+            SkillableCompat.setup();
+        }
+
+        if (Loader.isModLoaded("tconstruct") && TinkersModule){
+            TinkersCompat.setup();
+            AssortedMaterials.Init(event);
+            BWMMaterials.Init(event);
+            logger.printf(Level.INFO, "Main Mod file Init");
+        }
     }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event){
         StargazerConfig.postInit(event);
-        if (Loader.isModLoaded("tinkersconstruct") && TinkersModule){
-            SGTinkersIntegration.postInit(event);
+
+        if (Loader.isModLoaded("betterquesting") && BQModule){
+            BetterQuestingCompat.setup();
+        }
+
+        if (Loader.isModLoaded("botania") && BotaniaModule){
+            BotaniaCompat.setup();
+        }
+
+        if (Loader.isModLoaded("gamestages") && GameStageModule){
+            GameStagesCompat.setup();
+        }
+
+        if (Loader.isModLoaded("skillable") && SkillableModule){
+            SkillableCompat.setup();
+        }
+
+        if (Loader.isModLoaded("tconstruct") && TinkersModule){
+            TinkersCompat.setup();
+            AssortedMaterials.postInit(event);
+            BWMMaterials.postInit(event);
+            logger.printf(Level.INFO, "Main Mod file PostInit");
         }
     }
 
