@@ -4,7 +4,7 @@ import vazkii.skillable.skill.SkillMining;
 import vazkii.skillable.skill.mining.TraitFossilDigger;
 import vazkii.skillable.skill.mining.TraitObsidianSmasher;
 
-public class SkillMiningAddon extends SkillMining{
+public class SkillMiningAddon extends SkillMining {
 
     @Override
     public void initUnlockables() {

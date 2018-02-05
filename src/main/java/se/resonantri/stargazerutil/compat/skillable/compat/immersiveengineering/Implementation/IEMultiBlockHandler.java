@@ -13,7 +13,7 @@ public class IEMultiBlockHandler {
     }
 
     public void addMultiBlockSkill(MultiBlockSkill multiBlockStage) {
-        multiBlockSkill.put(multiBlockStage.getMultiBlockName(),  multiBlockStage);
+        multiBlockSkill.put(multiBlockStage.getMultiBlockName(), multiBlockStage);
     }
 
 //    @SubscribeEvent

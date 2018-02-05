@@ -9,9 +9,9 @@ import slimeknights.tconstruct.library.modifiers.IModifier;
 
 import static crafttweaker.mc1120.commands.SpecialMessagesChat.*;
 
-public class ModifierDumpCommand extends CraftTweakerCommand{
+public class ModifierDumpCommand extends CraftTweakerCommand {
 
-    public ModifierDumpCommand(){
+    public ModifierDumpCommand() {
         super("tinkersmodifiers");
     }
 
@@ -26,14 +26,14 @@ public class ModifierDumpCommand extends CraftTweakerCommand{
     public void executeCommand(MinecraftServer server, ICommandSender sender, String[] args) {
         int count = 0;
         CraftTweakerAPI.logCommand("##### Tinker's Construct Modifier Dump #####");
-            for (IModifier modifier : TinkerRegistry.getAllModifiers()) {
-                count++;
-                CraftTweakerAPI.logCommand("## " + modifier.getLocalizedName());
-                CraftTweakerAPI.logCommand("#  Identifier: " + modifier.getIdentifier());
-                CraftTweakerAPI.logCommand("#  Localized:  " + modifier.getLocalizedName());
-                CraftTweakerAPI.logCommand("#  Description:" + modifier.getLocalizedDesc());
-                CraftTweakerAPI.logCommand("##");
-            }
+        for (IModifier modifier : TinkerRegistry.getAllModifiers()) {
+            count++;
+            CraftTweakerAPI.logCommand("## " + modifier.getLocalizedName());
+            CraftTweakerAPI.logCommand("#  Identifier: " + modifier.getIdentifier());
+            CraftTweakerAPI.logCommand("#  Localized:  " + modifier.getLocalizedName());
+            CraftTweakerAPI.logCommand("#  Description:" + modifier.getLocalizedDesc());
+            CraftTweakerAPI.logCommand("##");
+        }
         CraftTweakerAPI.logCommand("#########");
         sender.sendMessage(getNormalMessage("List of Tinker's Modifiers Generated;"));
         sender.sendMessage(getLinkToCraftTweakerLog("List Size: " + count + " Entries;", sender));

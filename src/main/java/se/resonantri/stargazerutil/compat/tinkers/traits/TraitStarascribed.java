@@ -8,7 +8,7 @@ import slimeknights.tconstruct.library.utils.Tags;
 public class TraitStarascribed extends AbstractTraitLeveled {
 
     public TraitStarascribed(int levels) {
-        super("starascribed", String.valueOf(levels), 0x351C75, 2, 1);
+        super("starascribed", String.valueOf(levels), 0x0f5edd, 2, 1);
     }
 
     @Override

@@ -24,19 +24,19 @@ public abstract class ActionAddMultiBlockSkills implements IAction {
     public void apply() {
 
         if (Strings.isNullOrEmpty(getMultiBlockName())) {
-                throw new IllegalArgumentException("MultiBlock Name cannot be Empty");
-            } else if (Strings.isNullOrEmpty(getFailureMessage())) {
-                throw new IllegalArgumentException("Failure Message cannot be Empty");
-            } else if (reqSkills != null){
-            for (String strings : reqSkills){
-                if (Strings.isNullOrEmpty(strings)){
+            throw new IllegalArgumentException("MultiBlock Name cannot be Empty");
+        } else if (Strings.isNullOrEmpty(getFailureMessage())) {
+            throw new IllegalArgumentException("Failure Message cannot be Empty");
+        } else if (reqSkills != null) {
+            for (String strings : reqSkills) {
+                if (Strings.isNullOrEmpty(strings)) {
                     CraftTweakerAPI.logError("Null Value found in Array 'reqSkills'");
                 }
             }
         } else {
             CraftTweakerAPI.logError("The Array 'reqSkills' was found to be Null!");
         }
-            addToHandler(new MultiBlockSkill(getReqSkills(), getMultiBlockName(), getFailureMessage()));
+        addToHandler(new MultiBlockSkill(getReqSkills(), getMultiBlockName(), getFailureMessage()));
     }
 
     public abstract void addToHandler(MultiBlockSkill multiBlockSkill);

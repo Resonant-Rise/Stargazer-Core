@@ -16,19 +16,14 @@ import vazkii.skillable.skill.base.Trait;
 import java.util.HashMap;
 import java.util.Map;
 
-import static se.resonantri.stargazerutil.utils.StargazerConfig.StargazerConfigs.Skillable.luckyMinerCost;
+import static se.resonantri.stargazerutil.utils.StargazerConfig.StargazerConfigs.Skillable.LuckyMinerCost;
 import static se.resonantri.stargazerutil.utils.UtilityMethods.nextIntInclusive;
 import static se.resonantri.stargazerutil.utils.UtilityMethods.tryPercentage;
 
-public class UnlockableLuckyMiner extends Trait{
-
-    public static int fortuneLevel;
+public class UnlockableLuckyMiner extends Trait {
 
     public static final Map<Block, ItemStack> map = new HashMap<>();
-
-    public UnlockableLuckyMiner() {
-        super("lucky_miner", 3, 2, luckyMinerCost, "mining:16");
-    }
+    public static int fortuneLevel;
 
     static {
         map.put(Blocks.EMERALD_ORE, new ItemStack(Items.EMERALD, nextIntInclusive(1, 1 + fortuneLevel)));
@@ -38,16 +33,20 @@ public class UnlockableLuckyMiner extends Trait{
         map.put(Blocks.QUARTZ_ORE, new ItemStack(Items.QUARTZ, nextIntInclusive(1, 1 + fortuneLevel)));
     }
 
+    public UnlockableLuckyMiner() {
+        super("lucky_miner", 3, 2, LuckyMinerCost, "mining:16");
+    }
+
     @Override
-    public void onBlockDrops(HarvestDropsEvent event){
+    public void onBlockDrops(HarvestDropsEvent event) {
         EntityPlayer player = event.getHarvester();
         IBlockState blockState = event.getState();
         fortuneLevel = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, player.getHeldItem(player.getActiveHand()));
-        if (ConditionHelper.hasRightTool(player, blockState, "pickaxe", Item.ToolMaterial.IRON.getHarvestLevel())){
-            if (EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, player.getHeldItem(player.getActiveHand())) == 0){
-                if (tryPercentage(0.50d)){
+        if (ConditionHelper.hasRightTool(player, blockState, "pickaxe", Item.ToolMaterial.IRON.getHarvestLevel())) {
+            if (EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, player.getHeldItem(player.getActiveHand())) == 0) {
+                if (tryPercentage(0.50d)) {
                     ItemStack stack = map.get(blockState.getBlock());
-                    if (stack != null && !stack.isEmpty()){
+                    if (stack != null && !stack.isEmpty()) {
                         event.getDrops().add(stack.copy());
                     }
 

@@ -11,12 +11,12 @@ import stanhebben.zenscript.annotations.ZenMethod;
 @ZenClass("mods.stargazerutils.IEMultiBlockSkills")
 public class IEMultiBlockSkills {
     @ZenMethod
-    public static void addSkills(String[] skills, String multiBlockName){
+    public static void addSkills(String[] skills, String multiBlockName) {
         CraftTweakerAPI.apply(new ActionAddIEMultiBlockSkill(skills, multiBlockName));
     }
 
     @ZenMethod
-    public static void addSkills(String[] skills, String multiBlockName, String failureMessage){
+    public static void addSkills(String[] skills, String multiBlockName, String failureMessage) {
         CraftTweakerAPI.apply(new ActionAddIEMultiBlockSkill(skills, multiBlockName, failureMessage));
     }
 }

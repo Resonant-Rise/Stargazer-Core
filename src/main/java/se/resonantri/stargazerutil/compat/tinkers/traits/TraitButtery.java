@@ -9,7 +9,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-public class TraitButtery extends AbstractTrait{
+public class TraitButtery extends AbstractTrait {
     int x = 0;
 
     public TraitButtery() {
@@ -18,13 +18,13 @@ public class TraitButtery extends AbstractTrait{
 
     @Override
     public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected) {
-        if (isSelected){
-            if (x < 20){
+        if (isSelected) {
+            if (x < 20) {
                 x++;
-                if (x >= 20){
-                    if (entity instanceof EntityPlayer){
+                if (x >= 20) {
+                    if (entity instanceof EntityPlayer) {
                         tool.damageItem(1, (EntityLivingBase) entity);
-                        ((EntityLivingBase)entity).addPotionEffect(new PotionEffect(MobEffects.SPEED, 20, 2));
+                        ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.SPEED, 20, 2));
                     }
                     x = 0;
                 }

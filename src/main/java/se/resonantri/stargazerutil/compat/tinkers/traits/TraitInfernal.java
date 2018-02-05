@@ -17,10 +17,10 @@ public class TraitInfernal extends AbstractTrait {
 
     @Override
     public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
-        if (player instanceof EntityPlayer){
-            if (!world.isRaining() && world.canSeeSky(pos)){
-                if (wasEffective){
-                    if (tryPercentage(0.05D)){
+        if (player instanceof EntityPlayer) {
+            if (!world.isRaining() && !player.isInWater() && !world.canSeeSky(player.getPosition())) {
+                if (wasEffective) {
+                    if (tryPercentage(0.15D)) {
                         player.setFire(2);
                     }
                 }

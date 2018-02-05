@@ -9,7 +9,7 @@ import java.util.List;
 
 import static crafttweaker.mc1120.commands.SpecialMessagesChat.*;
 
-public abstract class MultiBlockCommand extends CraftTweakerCommand{
+public abstract class MultiBlockCommand extends CraftTweakerCommand {
     public MultiBlockCommand(String setName) {
         super(setName + "MultiBlocks");
     }

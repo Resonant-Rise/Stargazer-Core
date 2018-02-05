@@ -1,29 +1,25 @@
 package se.resonantri.stargazerutil.compat.skillable;
 
-import net.minecraftforge.fml.common.Loader;
-import se.resonantri.stargazerutil.compat.skillable.compat.immersiveengineering.Implementation.IEMultiBlockSupport;
+import se.resonantri.stargazerutil.compat.CompatModule;
 
-import static se.resonantri.stargazerutil.utils.StargazerConfig.StargazerConfigs.Skillable.*;
+import static se.resonantri.stargazerutil.utils.StargazerConfig.StargazerConfigs.Skillable.Alchemy;
 
-public class SkillableCompat {
-    public static void setup(){
-        if (alchemy){
+public class SkillableCompat extends CompatModule {
 
-        }
-
-        if (luckyMiner){
+    @Override
+    public void preInit() {
+        if (Alchemy) {
 
         }
+    }
 
-        if (accelerated){
+    @Override
+    public void init() {
 
-        }
+    }
 
-        if (Loader.isModLoaded("crafttweaker")){
-            if (IESkills){
-                IEMultiBlockSupport.setup();
-            }
-        }
+    @Override
+    public void postInit() {
 
     }
 }
