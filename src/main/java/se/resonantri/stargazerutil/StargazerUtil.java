@@ -14,12 +14,7 @@ import se.resonantri.stargazerutil.compat.CompatModule;
 import se.resonantri.stargazerutil.utils.Constants;
 import se.resonantri.stargazerutil.utils.StargazerConfig;
 
-@Mod(modid = Constants.MODID,
-        name = Constants.NAME,
-        version = Constants.VERSION,
-        dependencies = Constants.DEPS,
-        acceptedMinecraftVersions = Constants.MCVERS)
-
+@Mod(modid = Constants.MODID, name = Constants.NAME, version = Constants.VERSION, dependencies = Constants.DEPS, acceptedMinecraftVersions = Constants.MCVERS)
 public class StargazerUtil {
     @SidedProxy(clientSide = "se.resonantri.stargazerutil.client.ClientProxy", serverSide = "se.resonantri.stargazerutil.common.CommonProxy")
     public static CommonProxy proxy;

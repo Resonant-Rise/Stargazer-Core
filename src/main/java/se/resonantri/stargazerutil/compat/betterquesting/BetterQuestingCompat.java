@@ -1,19 +1,26 @@
 package se.resonantri.stargazerutil.compat.betterquesting;
 
-import static se.resonantri.stargazerutil.utils.StargazerConfig.StargazerConfigs.BetterQuesting.*;
+import se.resonantri.stargazerutil.compat.CompatModule;
 
-public class BetterQuestingCompat {
-    public static void setup() {
-        if (GSTasksRewards) {
+public class BetterQuestingCompat extends CompatModule {
 
-        }
+    @Override
+    public void preInit() {
 
-        if (SkillableTasksRewards) {
+    }
 
-        }
+    @Override
+    public void init() {
 
-        if (TiCoTasksRewards) {
+    }
 
-        }
+    @Override
+    public void postInit() {
+
+    }
+
+    @Override
+    public void loadComplete() {
+
     }
 }

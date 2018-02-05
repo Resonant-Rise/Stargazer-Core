@@ -20,9 +20,11 @@ public class IEMultiBlockHandler {
 //    public void multiBlockForm(MultiblockFormEvent multiblockFormEvent) {
 //        IMultiblock multiblock = multiblockFormEvent.getMultiblock();
 //        EntityPlayer entityPlayer = multiblockFormEvent.getEntityPlayer();
+//        PlayerData data = vazkii.skillable.base.PlayerDataHandler.get(entityPlayer);
 //        if (multiBlockSkill.containsKey(multiblock.getUniqueName())) {
 //            MultiBlockSkill reqSkills = multiBlockSkill.get(multiblock.getUniqueName());
-//            if (!PlayerDataHandler.getStageData(entityPlayer).hasLevel(reqSkills.getReqSkills())) {
+//            //Todo Add Check For Skill Requirements
+//            if () {
 //                multiblockFormEvent.setCanceled(true);
 //                if (entityPlayer.getEntityWorld().isRemote) {
 //                    entityPlayer.sendStatusMessage(new TextComponentString(reqSkills.getFailureMessage()), false);

@@ -88,6 +88,11 @@ public final class BWMMaterials extends CompatModule {
     }
 
     @Override
+    public void loadComplete() {
+
+    }
+
+    @Override
     public void clientPostInit() {
         concHellfire.setRenderInfo(new MaterialRenderInfo.Metal(0x990000, 0.1f, 0.2f, 0f));
         diamond.setRenderInfo(new MaterialRenderInfo.Metal(0x19C9C9, 0.1f, 0.2f, 0f));

@@ -1,15 +1,18 @@
 package se.resonantri.stargazerutil.compat.skillable.traits.basetraits.mining;
 
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import se.resonantri.stargazerutil.utils.StargazerConfig.StargazerConfigs.Skillable;
+import vazkii.skillable.event.RegisterUnlockablesEvent;
 import vazkii.skillable.skill.SkillMining;
-import vazkii.skillable.skill.mining.TraitFossilDigger;
-import vazkii.skillable.skill.mining.TraitObsidianSmasher;
 
-public class SkillMiningAddon extends SkillMining {
+public class SkillMiningAddon {
 
-    @Override
-    public void initUnlockables() {
-        addUnlockable(new UnlockableLuckyMiner());
-        addUnlockable(new TraitFossilDigger());
-        addUnlockable(new TraitObsidianSmasher());
+    @SubscribeEvent
+    public void addMiningTraits(RegisterUnlockablesEvent event) {
+        if (event.getSkill() instanceof SkillMining) {
+            if (Skillable.LuckyMiner) {
+                event.register(new UnlockableLuckyMiner());
+            }
+        }
     }
 }

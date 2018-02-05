@@ -5,16 +5,11 @@ import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.Config.Comment;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import se.resonantri.stargazerutil.compat.CompatModule;
-import slimeknights.mantle.pulsar.config.ForgeCFG;
 
 import java.util.Map;
 
 public class StargazerConfig {
-
-    public static ForgeCFG pulseConfig = new ForgeCFG("StargazerTinkerModules", "Modules");
-
-    public static void postInit(FMLPostInitializationEvent e) {
-
+    public static void postInit(FMLPostInitializationEvent event) {
     }
 
     @Config(modid = Constants.MODID)
@@ -23,7 +18,7 @@ public class StargazerConfig {
         public static BetterQuesting betterQuesting;
         public static GameStages gameStages;
         public static ImmersiveEngineering immersiveEngineering;
-        public static Skillable skillable;
+        public static Skillable skillables;
 
         public static class Modules {
             @Comment({"A list of all mods that SG:U has integrated compatability for", "Setting any of these to false disables the respective compat"})

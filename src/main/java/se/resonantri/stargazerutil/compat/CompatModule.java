@@ -10,6 +10,9 @@ package se.resonantri.stargazerutil.compat;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import se.resonantri.stargazerutil.compat.botania.BotaniaCompat;
+import se.resonantri.stargazerutil.compat.gamestages.GameStagesCompat;
+import se.resonantri.stargazerutil.compat.skillable.SkillableCompat;
 import se.resonantri.stargazerutil.compat.skillable.compat.immersiveengineering.ImmersiveEngineeringCompat;
 import se.resonantri.stargazerutil.compat.tinkers.TinkersCommands;
 import se.resonantri.stargazerutil.compat.tinkers.materials.AstralSorceryMaterials;
@@ -33,7 +36,10 @@ public abstract class CompatModule {
     static {
         moduleClasses.put("astralsorcery", AstralSorceryMaterials.class);
         moduleClasses.put("betterwithmods", BWMMaterials.class);
+        moduleClasses.put("botania", BotaniaCompat.class);
+        moduleClasses.put("gamestages", GameStagesCompat.class);
         moduleClasses.put("immersiveengineering", ImmersiveEngineeringCompat.class);
+        moduleClasses.put("skillable", SkillableCompat.class);
         moduleClasses.put("tconstruct", TinkersCommands.class);
         moduleClasses.put("techreborn", TechRebornMaterials.class);
     }
@@ -95,6 +101,7 @@ public abstract class CompatModule {
     public abstract void postInit();
 
     public void loadComplete() {
+
     }
 
     @SideOnly(Side.CLIENT)

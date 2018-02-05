@@ -4,6 +4,8 @@ import crafttweaker.mc1120.commands.CTChatCommand;
 import se.resonantri.stargazerutil.compat.CompatModule;
 import se.resonantri.stargazerutil.compat.tinkers.commands.ModifierDumpCommand;
 
+import static se.resonantri.stargazerutil.utils.StargazerConfig.StargazerConfigs.TinkersConstruct.ModifierDump;
+
 public class TinkersCommands extends CompatModule {
     @Override
     public void preInit() {
@@ -22,6 +24,8 @@ public class TinkersCommands extends CompatModule {
 
     @Override
     public void loadComplete() {
-        CTChatCommand.registerCommand(new ModifierDumpCommand());
+        if (ModifierDump) {
+            CTChatCommand.registerCommand(new ModifierDumpCommand());
+        }
     }
 }

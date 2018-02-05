@@ -34,7 +34,7 @@ public class UnlockableLuckyMiner extends Trait {
     }
 
     public UnlockableLuckyMiner() {
-        super("lucky_miner", 3, 2, LuckyMinerCost, "mining:16");
+        super("lucky_miner", 2, 2, LuckyMinerCost, "mining:16");
     }
 
     @Override
@@ -49,7 +49,6 @@ public class UnlockableLuckyMiner extends Trait {
                     if (stack != null && !stack.isEmpty()) {
                         event.getDrops().add(stack.copy());
                     }
-
                 }
             }
         }

@@ -1,7 +1,26 @@
 package se.resonantri.stargazerutil.compat.botania;
 
-public class BotaniaCompat {
-    public static void setup() {
+import se.resonantri.stargazerutil.compat.CompatModule;
+
+public class BotaniaCompat extends CompatModule {
+
+    @Override
+    public void preInit() {
+
+    }
+
+    @Override
+    public void init() {
+
+    }
+
+    @Override
+    public void postInit() {
+
+    }
+
+    @Override
+    public void loadComplete() {
 
     }
 }

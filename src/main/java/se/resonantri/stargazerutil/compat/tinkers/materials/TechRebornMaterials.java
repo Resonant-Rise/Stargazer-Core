@@ -42,6 +42,11 @@ public class TechRebornMaterials extends CompatModule {
     }
 
     @Override
+    public void loadComplete() {
+
+    }
+
+    @Override
     public void clientPostInit() {
         carbonMesh.setRenderInfo(new MaterialRenderInfo.Metal(0x262626, 0.1f, 0.2f, 0f));
     }

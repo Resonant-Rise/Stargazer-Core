@@ -45,6 +45,11 @@ public class AstralSorceryMaterials extends CompatModule {
     }
 
     @Override
+    public void loadComplete() {
+
+    }
+
+    @Override
     public void clientPostInit() {
         starmetal.setRenderInfo(new MaterialRenderInfo.Metal(0x0f5edd, 0.1f, 0.2f, 0f));
     }
