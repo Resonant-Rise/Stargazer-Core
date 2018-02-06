@@ -1,16 +1,16 @@
 [
-{
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  {
+  "modid": "stargazerutil",
+  "name": "Stargazer Utilities",
+  "description": "Utility Addition mod for the Stargazer mod-pack",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["Lanse505"],
+  "credits": "Special thanks to Jaredlll08, Skysom and Darkhax for helping me debug code",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
-}
+  }
 ]
