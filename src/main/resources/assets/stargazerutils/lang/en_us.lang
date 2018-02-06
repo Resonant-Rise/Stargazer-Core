@@ -1,8 +1,19 @@
+###############
+#    Items    #
+###############
+item.stargazerutil.itemquill.name=Quill
+item.stargazerutil.iteminkwell.name=Inkwell
+
+##############
+#   Blocks   #
+##############
+tile.stargazerutil.scribetable.name=Scribe's Table
+tile.stargazerutil.bookbindingtable.name=Book-Binding Table
+
 ##############
 #   Skills   #
 ##############
 skillable.skill.alchemy=Alchemy
-
 
 ###################
 #   Unlockables   #
@@ -37,3 +48,9 @@ modifier.infernal.name=Infernal
 modifier.infernal.desc=Infused with the soul of a blaze. \n§rYou have a small chance to light yourself on fire!
 modifier.starascribed.name=Starascribed
 modifier.starascribed.desc=Forged with the knowledge of the stars. \n§rMore words. More Modifiers.
+
+
+##############
+#    Misc    #
+##############
+itemGroup.stargazerutil=Stargazer
