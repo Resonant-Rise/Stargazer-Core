@@ -3,6 +3,7 @@ package se.resonantri.stargazerutil.common;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -21,6 +22,8 @@ import se.resonantri.stargazerutil.common.items.ItemQuill;
 import se.resonantri.stargazerutil.common.items.ResearchSystem.ItemManuscript;
 import se.resonantri.stargazerutil.common.items.ResearchSystem.ItemResearch;
 import se.resonantri.stargazerutil.common.items.ResearchSystem.ItemTheorem;
+import se.resonantri.stargazerutil.common.research.IResearchEventHandler;
+import se.resonantri.stargazerutil.common.research.triggers.TestCase;
 import se.resonantri.stargazerutil.common.tiles.TileBookBindingTable;
 import se.resonantri.stargazerutil.common.tiles.TileScribeTable;
 
@@ -67,6 +70,7 @@ public class CommonProxy {
     }
 
     public void preInit(FMLPreInitializationEvent e) {
+        MinecraftForge.EVENT_BUS.register(new TestCase());
     }
 
     public void init(FMLInitializationEvent e) {
