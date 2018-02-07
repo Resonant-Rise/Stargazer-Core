@@ -35,13 +35,13 @@ public class ItemResearch extends Item{
         stack.setTagCompound(new NBTTagCompound());
         NBTTagCompound nbt = stack.getTagCompound();
         if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)){
-            if (nbt.hasKey("researcher")){
-                tooltip.add(TextFormatting.GRAY + "researcher: " + nbt.getString("researcher"));
-            } else if (!nbt.hasKey("researcher")){
-                tooltip.add(TextFormatting.GRAY + "researcher: " + TextFormatting.DARK_PURPLE + "NULL");
+            if (nbt.hasKey("research")){
+                tooltip.add(TextFormatting.GRAY + "research: " + nbt.getString("research"));
+            } else if (!nbt.hasKey("research")){
+                tooltip.add(TextFormatting.GRAY + "research: " + TextFormatting.DARK_PURPLE + "NULL");
             }
         } else if (!Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)){
-            tooltip.add(TextFormatting.GRAY + "Press Shift for researcher Information");
+            tooltip.add(TextFormatting.GRAY + "Press Shift for research Information");
         }
     }
 }
