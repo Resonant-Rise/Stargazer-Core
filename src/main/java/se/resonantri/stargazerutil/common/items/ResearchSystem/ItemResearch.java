@@ -40,7 +40,7 @@ public class ItemResearch extends Item{
 
         if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)){
             if (nbt.hasKey("Research")){
-                tooltip.add(TextFormatting.GRAY + "Research: " + nbt.getString("Research"));
+                tooltip.add(TextFormatting.GRAY + "Research: " + TextFormatting.LIGHT_PURPLE + nbt.getString("Research"));
             } else if (!nbt.hasKey("Research")){
                 tooltip.add(TextFormatting.GRAY + "Research: " + TextFormatting.DARK_PURPLE + "NULL");
             }

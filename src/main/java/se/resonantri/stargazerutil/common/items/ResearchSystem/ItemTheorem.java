@@ -38,7 +38,7 @@ public class ItemTheorem extends Item{
 
         if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)){
             if (nbt.hasKey("Theorem")){
-                tooltip.add(TextFormatting.GRAY + "Theorem: " + nbt.getString("Theorem"));
+                tooltip.add(TextFormatting.GRAY + "Theorem: " + TextFormatting.LIGHT_PURPLE + nbt.getString("Theorem"));
             } else if (!nbt.hasKey("Theorem")){
                 tooltip.add(TextFormatting.GRAY + "Theorem: " + TextFormatting.DARK_PURPLE + "NULL");
             }

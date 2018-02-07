@@ -37,7 +37,7 @@ public class ItemManuscript extends Item{
 
         if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)){
             if (nbt.hasKey("Manuscript")){
-                tooltip.add(TextFormatting.GRAY + "Manuscript: " + nbt.getString("Manuscript"));
+                tooltip.add(TextFormatting.GRAY + "Manuscript: " + TextFormatting.LIGHT_PURPLE + nbt.getString("Manuscript"));
             } else if (!nbt.hasKey("Manuscript")){
                 tooltip.add(TextFormatting.GRAY + "Manuscript: " + TextFormatting.DARK_PURPLE + "NULL");
             }
