@@ -29,27 +29,27 @@ public interface IResearchEventHandler {
 
 
     //Living Event
-    default void onMobDrops(LivingDropsEvent event){
+    default void onMobDrops(LivingDropsEvent event) {
     }
 
-    default void onKillMob(LivingDeathEvent event){
+    default void onKillMob(LivingDeathEvent event) {
     }
 
-    default void onMobBreakBlock(LivingDestroyBlockEvent event){
+    default void onMobBreakBlock(LivingDestroyBlockEvent event) {
     }
 
-    default void onJump(LivingJumpEvent event){
+    default void onJump(LivingJumpEvent event) {
     }
 
-    default void onEntityTravelDimension(EntityTravelToDimensionEvent event){
+    default void onEntityTravelDimension(EntityTravelToDimensionEvent event) {
     }
 
-    default void onHitByProjectile(ProjectileImpactEvent event){
+    default void onHitByProjectile(ProjectileImpactEvent event) {
     }
 
 
     //Tick Event
-    default void onPlayerTick(PlayerTickEvent event){
+    default void onPlayerTick(PlayerTickEvent event) {
     }
 
 }

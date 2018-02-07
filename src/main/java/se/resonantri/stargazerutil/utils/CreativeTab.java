@@ -18,7 +18,7 @@ public class CreativeTab extends CreativeTabs {
     }
 
     @Override
-    public boolean hasSearchBar(){
+    public boolean hasSearchBar() {
         return true;
     }
 }

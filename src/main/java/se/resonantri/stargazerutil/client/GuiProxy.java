@@ -18,11 +18,11 @@ public class GuiProxy implements IGuiHandler {
         BlockPos pos = new BlockPos(x, y, z);
         TileEntity te = world.getTileEntity(pos);
 
-        if (te instanceof TileScribeTable){
+        if (te instanceof TileScribeTable) {
             return new ScribeTableContainer(player.inventory, (TileScribeTable) te);
         }
 
-        if (te instanceof TileBookBindingTable){
+        if (te instanceof TileBookBindingTable) {
             return new BookBindingTableContainer(player.inventory, (TileBookBindingTable) te);
         }
 
@@ -34,12 +34,12 @@ public class GuiProxy implements IGuiHandler {
         BlockPos pos = new BlockPos(x, y, z);
         TileEntity te = world.getTileEntity(pos);
 
-        if (te instanceof TileScribeTable){
+        if (te instanceof TileScribeTable) {
             TileScribeTable scribeTable = (TileScribeTable) te;
             return new GuiScribeTable(scribeTable, new ScribeTableContainer(player.inventory, scribeTable));
         }
 
-        if (te instanceof TileBookBindingTable){
+        if (te instanceof TileBookBindingTable) {
             TileBookBindingTable bookBindingTable = (TileBookBindingTable) te;
             return new GuiBookBindingTable(bookBindingTable, new BookBindingTableContainer(player.inventory, bookBindingTable));
         }

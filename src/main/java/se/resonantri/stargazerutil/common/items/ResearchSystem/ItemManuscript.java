@@ -1,5 +1,6 @@
 package se.resonantri.stargazerutil.common.items.ResearchSystem;
 
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -15,15 +16,15 @@ import se.resonantri.stargazerutil.utils.CreativeTab;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemManuscript extends Item{
-    public ItemManuscript(){
+public class ItemManuscript extends Item {
+    public ItemManuscript() {
         setMaxStackSize(1);
         setCreativeTab(CreativeTab.stargazerUtils);
         setUnlocalizedName(Constants.MODID + ".itemmanuscript");
         setRegistryName(new ResourceLocation(Constants.MODID, "itemmanuscript"));
     }
 
-    public void initModel(){
+    public void initModel() {
         StargazerUtil.proxy.registerItemRenderer(this, 0, "itemmanuscript");
     }
 
@@ -31,17 +32,17 @@ public class ItemManuscript extends Item{
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         NBTTagCompound nbt = stack.getTagCompound();
 
-        if (!stack.hasTagCompound()){
+        if (!stack.hasTagCompound()) {
             stack.setTagCompound(new NBTTagCompound());
         }
 
-        if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)){
-            if (nbt.hasKey("Manuscript")){
-                tooltip.add(TextFormatting.GRAY + "Manuscript: " + TextFormatting.LIGHT_PURPLE + nbt.getString("Manuscript"));
-            } else if (!nbt.hasKey("Manuscript")){
+        if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
+            if (nbt.hasKey("Manuscript")) {
+                tooltip.add(TextFormatting.GRAY + "Manuscript: " + TextFormatting.LIGHT_PURPLE + I18n.format(nbt.getString("Manuscript")));
+            } else if (!nbt.hasKey("Manuscript")) {
                 tooltip.add(TextFormatting.GRAY + "Manuscript: " + TextFormatting.DARK_PURPLE + "NULL");
             }
-        } else if (!Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)){
+        } else if (!Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
             tooltip.add(TextFormatting.GRAY + "Press Shift for Manuscript Information");
         }
     }

@@ -1,5 +1,6 @@
 package se.resonantri.stargazerutil.common.items.ResearchSystem;
 
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -15,16 +16,16 @@ import se.resonantri.stargazerutil.utils.CreativeTab;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemTheorem extends Item{
+public class ItemTheorem extends Item {
 
-    public ItemTheorem(){
+    public ItemTheorem() {
         setMaxStackSize(1);
         setCreativeTab(CreativeTab.stargazerUtils);
         setUnlocalizedName(Constants.MODID + ".itemtheorem");
         setRegistryName(new ResourceLocation(Constants.MODID, "itemtheorem"));
     }
 
-    public void initModel(){
+    public void initModel() {
         StargazerUtil.proxy.registerItemRenderer(this, 0, "itemtheorem");
     }
 
@@ -32,17 +33,17 @@ public class ItemTheorem extends Item{
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         NBTTagCompound nbt = stack.getTagCompound();
 
-        if (!stack.hasTagCompound()){
+        if (!stack.hasTagCompound()) {
             stack.setTagCompound(new NBTTagCompound());
         }
 
-        if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)){
-            if (nbt.hasKey("Theorem")){
-                tooltip.add(TextFormatting.GRAY + "Theorem: " + TextFormatting.LIGHT_PURPLE + nbt.getString("Theorem"));
-            } else if (!nbt.hasKey("Theorem")){
+        if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
+            if (nbt.hasKey("Theorem")) {
+                tooltip.add(TextFormatting.GRAY + "Theorem: " + TextFormatting.LIGHT_PURPLE + I18n.format(nbt.getString("Manuscript")));
+            } else if (!nbt.hasKey("Theorem")) {
                 tooltip.add(TextFormatting.GRAY + "Theorem: " + TextFormatting.DARK_PURPLE + "NULL");
             }
-        } else if (!Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)){
+        } else if (!Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
             tooltip.add(TextFormatting.GRAY + "Press Shift for Theorem Information");
         }
     }

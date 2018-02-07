@@ -8,28 +8,12 @@ item.stargazerutil.itemresearch.name=Research Notes
 item.stargazerutil.itemtheorem.name=Theorem
 item.stargazerutil.itemmanuscript.name=Manuscript
 
+
 ##############
 #   Blocks   #
 ##############
 tile.stargazerutil.scribetable.name=Scribe's Table
 tile.stargazerutil.bookbindingtable.name=Book-Binding Table
-
-##############
-#   Skills   #
-##############
-skillable.skill.alchemy=Alchemy
-
-###################
-#   Unlockables   #
-###################
-skillable.unlock.accelerated=Accelerated
-skillable.unlock.accelerated.desc=Hazardous exposure to potion components have infused you with energetic compounds, granting you passive §6Haste§r 2, §bSpeed§r 2
-
-skillable.unlock.fence_jumper=Fence Jumper
-skillable.unlock.fence_jumper.desc=Due to your extreme agility you've learnt to break free of the bounds of traditional movement, you are now able to jump over fences as beautifully as a swan.
-
-skillable.unlock.lucky_miner=Lucky Miner
-skillable.unlock.lucky_miner.desc=Through-out your years as a miner you've started gaining the favor of the patron of miners granting you extra drops from: §aEmerald§r, §9Lapis§r, §cRedstone§r and §fQuartz§r Ore.
 
 
 #################
@@ -44,17 +28,37 @@ material.starmetal.name=Starmetal
 
 
 ##############
+#   Skills   #
+##############
+skillable.skill.alchemy=Alchemy
+
+
+##############
 #   Traits   #
 ##############
-modifier.buttery.name=Buttery
+modifier.buttery.name=Buttery§r
 modifier.buttery.desc=Buttery, finger-licking good~ \n§rWho needs durability when you've got speed?
-modifier.infernal.name=Infernal
+modifier.infernal.name=Infernal§r
 modifier.infernal.desc=Infused with the soul of a blaze. \n§rYou have a small chance to light yourself on fire!
-modifier.starascribed.name=Starascribed
+modifier.starascribed.name=Starascribed§r
 modifier.starascribed.desc=Forged with the knowledge of the stars. \n§rMore words. More Modifiers.
+
+
+###################
+#   Unlockables   #
+###################
+skillable.unlock.accelerated=Accelerated
+skillable.unlock.accelerated.desc=Hazardous exposure to potion components have infused you with energetic compounds, granting you passive §6Haste§r 2, §bSpeed§r 2
+
+skillable.unlock.fence_jumper=Fence Jumper
+skillable.unlock.fence_jumper.desc=Due to your extreme agility you've learnt to break free of the bounds of traditional movement, you are now able to jump over fences as beautifully as a swan.
+
+skillable.unlock.lucky_miner=Lucky Miner
+skillable.unlock.lucky_miner.desc=Through-out your years as a miner you've started gaining the favor of the patron of miners granting you extra drops from: §aEmerald§r, §9Lapis§r, §cRedstone§r and §fQuartz§r Ore.
 
 
 ##############
 #    Misc    #
 ##############
 itemGroup.stargazerutil=Stargazer
+nbt.research.stonebreak.name=Stone Breaker

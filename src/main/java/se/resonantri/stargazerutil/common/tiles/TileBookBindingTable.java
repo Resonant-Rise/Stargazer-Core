@@ -10,7 +10,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import se.resonantri.stargazerutil.utils.TileEntityItemStackHandler;
 
-public class TileBookBindingTable extends TileEntity implements ITickable{
+public class TileBookBindingTable extends TileEntity implements ITickable {
     public static int SIZE;
     private ItemStackHandler itemStackHandler = new TileEntityItemStackHandler(this, SIZE);
 

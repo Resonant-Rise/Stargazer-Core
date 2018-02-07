@@ -29,7 +29,7 @@ public class ModItems {
 
 
     @SideOnly(Side.CLIENT)
-    public static void initModels(){
+    public static void initModels() {
         itemQuill.initModel();
         itemInkwell.initModel();
         itemParchment.initModel();

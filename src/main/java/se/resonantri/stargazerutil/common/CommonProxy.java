@@ -22,7 +22,6 @@ import se.resonantri.stargazerutil.common.items.ItemQuill;
 import se.resonantri.stargazerutil.common.items.ResearchSystem.ItemManuscript;
 import se.resonantri.stargazerutil.common.items.ResearchSystem.ItemResearch;
 import se.resonantri.stargazerutil.common.items.ResearchSystem.ItemTheorem;
-import se.resonantri.stargazerutil.common.research.IResearchEventHandler;
 import se.resonantri.stargazerutil.common.research.triggers.TestCase;
 import se.resonantri.stargazerutil.common.tiles.TileBookBindingTable;
 import se.resonantri.stargazerutil.common.tiles.TileScribeTable;

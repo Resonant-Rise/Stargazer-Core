@@ -1,6 +1,5 @@
 package se.resonantri.stargazerutil.compat.skillable.traits.basetraits.mining;
 
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import se.resonantri.stargazerutil.utils.StargazerConfig.StargazerConfigs.Skillable;

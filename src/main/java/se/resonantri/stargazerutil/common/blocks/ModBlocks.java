@@ -12,7 +12,7 @@ public class ModBlocks {
     public static BlockBookBindingTable bookBindingTable;
 
     @SideOnly(Side.CLIENT)
-    public static void initModels(){
+    public static void initModels() {
         scribeTable.initModel();
         bookBindingTable.initModel();
     }

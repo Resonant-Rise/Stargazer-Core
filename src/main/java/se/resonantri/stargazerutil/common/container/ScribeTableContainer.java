@@ -9,7 +9,7 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import se.resonantri.stargazerutil.common.tiles.TileScribeTable;
 
-public class ScribeTableContainer extends Container{
+public class ScribeTableContainer extends Container {
     private TileScribeTable te;
 
     public ScribeTableContainer(IInventory playerInventory, TileScribeTable te) {

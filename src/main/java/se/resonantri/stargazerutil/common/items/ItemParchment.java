@@ -7,14 +7,14 @@ import se.resonantri.stargazerutil.utils.Constants;
 import se.resonantri.stargazerutil.utils.CreativeTab;
 
 public class ItemParchment extends Item {
-    public ItemParchment(){
+    public ItemParchment() {
         setMaxStackSize(64);
         setCreativeTab(CreativeTab.stargazerUtils);
         setUnlocalizedName(Constants.MODID + ".itemparchment");
         setRegistryName(new ResourceLocation(Constants.MODID, "itemparchment"));
     }
 
-    public void initModel(){
+    public void initModel() {
         StargazerUtil.proxy.registerItemRenderer(this, 0, "itemparchment");
     }
 }

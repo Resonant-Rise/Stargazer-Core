@@ -22,4 +22,6 @@ public final class Constants {
     // System Constants
     public static final Random RANDOM = new Random();
 
+    // Research NBT
+    public static final String RESEARCHNBT = "nbt.research.";
 }

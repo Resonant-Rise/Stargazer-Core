@@ -17,18 +17,18 @@ import se.resonantri.stargazerutil.utils.Constants;
 public class ClientProxy extends CommonProxy {
 
     @SubscribeEvent
-    public static void registerModels(ModelRegistryEvent event){
+    public static void registerModels(ModelRegistryEvent event) {
         ModBlocks.initModels();
         ModItems.initModels();
     }
 
     @Override
-    public void registerItemRenderer(Item item, int meta, String id){
+    public void registerItemRenderer(Item item, int meta, String id) {
         ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(Constants.MODID + ":" + id, "inventory"));
     }
 
     @Override
-    public void preInit(FMLPreInitializationEvent e){
+    public void preInit(FMLPreInitializationEvent e) {
         super.preInit(e);
     }
 }

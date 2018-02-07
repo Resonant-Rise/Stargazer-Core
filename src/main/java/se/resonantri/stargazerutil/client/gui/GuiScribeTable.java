@@ -6,7 +6,7 @@ import se.resonantri.stargazerutil.common.container.ScribeTableContainer;
 import se.resonantri.stargazerutil.common.tiles.TileScribeTable;
 import se.resonantri.stargazerutil.utils.Constants;
 
-public class GuiScribeTable extends GuiContainer{
+public class GuiScribeTable extends GuiContainer {
     public static final int WIDTH = 180;
     public static final int HEIGHT = 152;
 

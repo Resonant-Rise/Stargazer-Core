@@ -6,7 +6,7 @@ import se.resonantri.stargazerutil.common.container.BookBindingTableContainer;
 import se.resonantri.stargazerutil.common.tiles.TileBookBindingTable;
 import se.resonantri.stargazerutil.utils.Constants;
 
-public class GuiBookBindingTable extends GuiContainer{
+public class GuiBookBindingTable extends GuiContainer {
     public static final int WIDTH = 180;
     public static final int HEIGHT = 152;
 

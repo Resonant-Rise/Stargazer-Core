@@ -23,7 +23,7 @@ import se.resonantri.stargazerutil.utils.CreativeTab;
 
 import javax.annotation.Nonnull;
 
-public class BlockScribeTable extends Block{
+public class BlockScribeTable extends Block {
     public static final int GUI_ID = 1;
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
