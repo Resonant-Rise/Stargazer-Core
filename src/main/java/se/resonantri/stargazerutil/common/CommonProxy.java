@@ -9,6 +9,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -25,8 +26,10 @@ import se.resonantri.stargazerutil.common.items.ResearchSystem.ItemTheorem;
 import se.resonantri.stargazerutil.common.research.triggers.TestCase;
 import se.resonantri.stargazerutil.common.tiles.TileBookBindingTable;
 import se.resonantri.stargazerutil.common.tiles.TileScribeTable;
+import se.resonantri.stargazerutil.compat.CompatModule;
 
 import static se.resonantri.stargazerutil.StargazerUtil.instance;
+import static se.resonantri.stargazerutil.StargazerUtil.logger;
 
 @EventBusSubscriber
 public class CommonProxy {
@@ -70,13 +73,23 @@ public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent e) {
         MinecraftForge.EVENT_BUS.register(new TestCase());
+        CompatModule.doModulesPreInit();
+        logger.info("Pre-Initilization");
     }
 
     public void init(FMLInitializationEvent e) {
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiProxy());
+        CompatModule.doModulesInit();
+        logger.info("Initilization");
     }
 
     public void postInit(FMLPostInitializationEvent e) {
+        CompatModule.doModulesPostInit();
+        logger.info("Post-Initilization");
+    }
 
+    public void serverStart(FMLServerStartingEvent e){
+        CompatModule.doModulesLoadComplete();
+        logger.info("Server Start");
     }
 }
