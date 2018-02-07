@@ -3,6 +3,10 @@
 ###############
 item.stargazerutil.itemquill.name=Quill
 item.stargazerutil.iteminkwell.name=Inkwell
+item.stargazerutil.itemparchment.name=Blank Parchment
+item.stargazerutil.itemresearch.name=Research Notes
+item.stargazerutil.itemtheorem.name=Theorem
+item.stargazerutil.itemmanuscript.name=Manuscript
 
 ##############
 #   Blocks   #

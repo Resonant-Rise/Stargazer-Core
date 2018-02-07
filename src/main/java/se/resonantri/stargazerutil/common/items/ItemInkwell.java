@@ -39,11 +39,24 @@ public class ItemInkwell extends Item{
     @Override
     public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
         super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
+
         if(!stack.hasTagCompound()){
             stack.setTagCompound( new NBTTagCompound());
         }
+
         if(!stack.getTagCompound().hasKey("ink")){
             stack.getTagCompound().setInteger("ink", 0);
         }
+
+        if(stack.getTagCompound().hasKey("ink")){
+            int ink = stack.getTagCompound().getInteger("ink");
+            if (ink > 64){
+                stack.getTagCompound().setInteger("ink", 16);
+            }
+            if (ink < 0){
+                stack.getTagCompound().setInteger("ink", 0);
+            }
+        }
     }
+
 }

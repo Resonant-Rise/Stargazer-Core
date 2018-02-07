@@ -15,6 +15,7 @@ import se.resonantri.stargazerutil.utils.Constants;
 
 @EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
+
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event){
         ModBlocks.initModels();
