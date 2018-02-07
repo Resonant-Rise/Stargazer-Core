@@ -32,8 +32,12 @@ public class ItemResearch extends Item{
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        stack.setTagCompound(new NBTTagCompound());
         NBTTagCompound nbt = stack.getTagCompound();
+
+        if (!stack.hasTagCompound()){
+            stack.setTagCompound(new NBTTagCompound());
+        }
+
         if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)){
             if (nbt.hasKey("Research")){
                 tooltip.add(TextFormatting.GRAY + "Research: " + nbt.getString("Research"));
