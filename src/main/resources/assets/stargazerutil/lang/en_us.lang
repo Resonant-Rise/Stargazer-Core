@@ -36,11 +36,11 @@ skillable.skill.alchemy=Alchemy
 ##############
 #   Traits   #
 ##############
-modifier.buttery.name=Buttery§r
+modifier.buttery.name=Buttery
 modifier.buttery.desc=Buttery, finger-licking good~ \n§rWho needs durability when you've got speed?
-modifier.infernal.name=Infernal§r
+modifier.infernal.name=Infernal
 modifier.infernal.desc=Infused with the soul of a blaze. \n§rYou have a small chance to light yourself on fire!
-modifier.starascribed.name=Starascribed§r
+modifier.starascribed.name=Starascribed
 modifier.starascribed.desc=Forged with the knowledge of the stars. \n§rMore words. More Modifiers.
 
 

@@ -22,7 +22,7 @@ public class TechRebornMaterials extends CompatModule {
                 new ExtraMaterialStats(50));
         TinkerRegistry.addMaterialStats(carbonMesh,
                 new BowMaterialStats(1.85f, 1.50f, 6.50f));
-        TinkerRegistry.integrate(carbonMesh);
+        TinkerRegistry.integrate(carbonMesh).preInit();
     }
 
     @Override

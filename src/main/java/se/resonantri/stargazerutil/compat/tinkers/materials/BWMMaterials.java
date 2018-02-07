@@ -31,25 +31,25 @@ public final class BWMMaterials extends CompatModule {
                 new HeadMaterialStats(16, 9.0f, 1.0f, STONE),
                 new HandleMaterialStats(0.1f, 0),
                 new ExtraMaterialStats(0));
-        TinkerRegistry.integrate(tallow, "tallow");
+        TinkerRegistry.integrate(tallow, "tallow").preInit();
 
         TinkerRegistry.addMaterialStats(concHellfire,
                 new HeadMaterialStats(550, 4.8f, 6.0f, IRON),
                 new HandleMaterialStats(1.0f, -200),
                 new ExtraMaterialStats(100));
-        TinkerRegistry.integrate(concHellfire, "ingotConcentratedHellfire, dustHellfire");
+        TinkerRegistry.integrate(concHellfire, "ingotConcentratedHellfire, dustHellfire").preInit();
 
         TinkerRegistry.addMaterialStats(diamond,
                 new HeadMaterialStats(1000, 7.0f, 7.1f, OBSIDIAN),
                 new HandleMaterialStats(0.5f, 1000),
                 new ExtraMaterialStats(300));
-        TinkerRegistry.integrate(diamond, "ingotDiamond");
+        TinkerRegistry.integrate(diamond, "ingotDiamond").preInit();
 
         TinkerRegistry.addMaterialStats(soulsteel,
                 new HeadMaterialStats(600, 7.0f, 8.1f, COBALT),
                 new HandleMaterialStats(1.0f, 100),
                 new ExtraMaterialStats(30));
-        TinkerRegistry.integrate(soulsteel, "ingotSoulforgedSteel");
+        TinkerRegistry.integrate(soulsteel, "ingotSoulforgedSteel").preInit();
     }
 
     @Override

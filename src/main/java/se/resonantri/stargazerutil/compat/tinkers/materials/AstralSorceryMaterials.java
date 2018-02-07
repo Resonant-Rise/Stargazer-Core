@@ -24,7 +24,7 @@ public class AstralSorceryMaterials extends CompatModule {
                 new HeadMaterialStats(204, 6.00f, 4.00f, DIAMOND),
                 new HandleMaterialStats(0.85f, 60),
                 new ExtraMaterialStats(50));
-        TinkerRegistry.integrate(starmetal, "ingotAstralStarmetal");
+        TinkerRegistry.integrate(starmetal, "ingotAstralStarmetal").preInit();
     }
 
     @Override

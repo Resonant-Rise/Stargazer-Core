@@ -34,10 +34,10 @@ public abstract class CompatModule {
     static {
         moduleClasses.put("astralsorcery", AstralSorceryMaterials.class);
         moduleClasses.put("betterwithmods", BWMMaterials.class);
-        //moduleClasses.put("botania", BotaniaCompat.class);
-        //moduleClasses.put("gamestages", GameStagesCompat.class);
-        //moduleClasses.put("immersiveengineering", ImmersiveEngineeringCompat.class);
-        //moduleClasses.put("skillable", SkillableCompat.class);
+        moduleClasses.put("botania", BotaniaCompat.class);
+        moduleClasses.put("gamestages", GameStagesCompat.class);
+        moduleClasses.put("immersiveengineering", ImmersiveEngineeringCompat.class);
+        moduleClasses.put("skillable", SkillableCompat.class);
         moduleClasses.put("tconstruct", TinkersCommands.class);
         moduleClasses.put("techreborn", TechRebornMaterials.class);
     }
