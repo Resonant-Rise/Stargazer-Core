@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import se.resonantri.stargazerutil.common.items.ModItems;
 import se.resonantri.stargazerutil.common.research.IResearchEventHandler;
-import se.resonantri.stargazerutil.utils.Constants;
+import se.resonantri.stargazerutil.utils.NBTTagList;
 
 
 public class TestCase implements IResearchEventHandler {
@@ -31,7 +31,7 @@ public class TestCase implements IResearchEventHandler {
                 stack.setTagCompound(new NBTTagCompound());
             }
 
-            stack.getTagCompound().setString("Research", Constants.RESEARCHNBT + "stonebreak.name");
+            stack.getTagCompound().setString("Research", NBTTagList.STONEBREAK);
 
             if (player != null) {
                 if (block instanceof BlockStone) {

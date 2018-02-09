@@ -20,9 +20,12 @@ import se.resonantri.stargazerutil.common.blocks.ModBlocks;
 import se.resonantri.stargazerutil.common.items.ItemInkwell;
 import se.resonantri.stargazerutil.common.items.ItemParchment;
 import se.resonantri.stargazerutil.common.items.ItemQuill;
-import se.resonantri.stargazerutil.common.items.ResearchSystem.ItemManuscript;
 import se.resonantri.stargazerutil.common.items.ResearchSystem.ItemResearch;
 import se.resonantri.stargazerutil.common.items.ResearchSystem.ItemTheorem;
+import se.resonantri.stargazerutil.common.items.ResearchSystem.manuscripts.ItemManuscriptAboriculture;
+import se.resonantri.stargazerutil.common.items.ResearchSystem.manuscripts.ItemManuscriptAgriculture;
+import se.resonantri.stargazerutil.common.items.ResearchSystem.manuscripts.ItemManuscriptAtlas;
+import se.resonantri.stargazerutil.common.items.ResearchSystem.manuscripts.ItemManuscriptHusbandry;
 import se.resonantri.stargazerutil.common.research.triggers.TestCase;
 import se.resonantri.stargazerutil.common.tiles.TileBookBindingTable;
 import se.resonantri.stargazerutil.common.tiles.TileScribeTable;
@@ -54,7 +57,10 @@ public class CommonProxy {
         event.getRegistry().register(new ItemParchment());
         event.getRegistry().register(new ItemResearch());
         event.getRegistry().register(new ItemTheorem());
-        event.getRegistry().register(new ItemManuscript());
+        event.getRegistry().register(new ItemManuscriptAboriculture());
+        event.getRegistry().register(new ItemManuscriptAgriculture());
+        event.getRegistry().register(new ItemManuscriptAtlas());
+        event.getRegistry().register(new ItemManuscriptHusbandry());
         event.getRegistry().register(new ItemBlock(ModBlocks.scribeTable).setRegistryName(ModBlocks.scribeTable.getRegistryName()));
         event.getRegistry().register(new ItemBlock(ModBlocks.bookBindingTable).setRegistryName(ModBlocks.bookBindingTable.getRegistryName()));
     }
@@ -66,10 +72,6 @@ public class CommonProxy {
 //        stack.getTagCompound().setInteger("ink", 16);
 //        event.getRegistry().register(new ShapelessOreRecipe(new ResourceLocation(Constants.MODID + ":inkwell"), stack, new ItemStack(INKWELL), new ItemStack(Items.DYE, 1, 0)).setRegistryName(new ResourceLocation(Constants.MODID + ":inkwellrefill")));
 //    }
-
-
-    public void registerItemRenderer(Item item, int meta, String id) {
-    }
 
     public void preInit(FMLPreInitializationEvent e) {
         MinecraftForge.EVENT_BUS.register(new TestCase());

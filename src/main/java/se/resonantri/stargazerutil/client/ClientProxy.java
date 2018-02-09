@@ -23,11 +23,6 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void registerItemRenderer(Item item, int meta, String id) {
-        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(Constants.MODID + ":" + id, "inventory"));
-    }
-
-    @Override
     public void preInit(FMLPreInitializationEvent e) {
         super.preInit(e);
     }

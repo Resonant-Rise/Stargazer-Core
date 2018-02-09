@@ -6,7 +6,12 @@ item.stargazerutil.iteminkwell.name=Inkwell
 item.stargazerutil.itemparchment.name=Blank Parchment
 item.stargazerutil.itemresearch.name=Research Notes
 item.stargazerutil.itemtheorem.name=Theorem
-item.stargazerutil.itemmanuscript.name=Manuscript
+
+//Manuscripts
+item.stargazerutil.itemaboriculture.name=Aboriculturist's Manuscript
+item.stargazerutil.itemagriculture.name=Agriculturist's Manuscript
+item.stargazerutil.itematlas.name=Atlas Manuscript
+item.stargazerutil.itemhusbandry.name=Manuscript of Animal Husbandry
 
 
 ##############
@@ -25,6 +30,12 @@ material.diamond.name=Diamond
 material.soulsteel.name=Soulforged Steel
 material.carbonmesh.name=Carbon Mesh
 material.starmetal.name=Starmetal
+
+
+###########
+#   NBT   #
+###########
+nbt.research.stonebreak=Stone Breaker
 
 
 ##############
@@ -61,4 +72,3 @@ skillable.unlock.lucky_miner.desc=Through-out your years as a miner you've start
 #    Misc    #
 ##############
 itemGroup.stargazerutil=Stargazer
-nbt.research.stonebreak.name=Stone Breaker

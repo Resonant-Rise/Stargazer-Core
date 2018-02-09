@@ -7,15 +7,16 @@ import net.minecraftforge.client.model.ModelLoader;
 import se.resonantri.stargazerutil.utils.Constants;
 import se.resonantri.stargazerutil.utils.CreativeTab;
 
-public class ItemQuill extends Item {
-    public ItemQuill() {
+public class ItemScrollTube extends Item{
+    public ItemScrollTube() {
         setMaxStackSize(1);
         setCreativeTab(CreativeTab.stargazerUtils);
-        setUnlocalizedName(Constants.MODID + ".itemquill");
-        setRegistryName(new ResourceLocation(Constants.MODID, "itemquill"));
+        setUnlocalizedName(Constants.MODID + ".itemscrolltube");
+        setRegistryName(new ResourceLocation(Constants.MODID, "itemscrolltube"));
     }
 
     public void initModel() {
         ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
     }
+
 }

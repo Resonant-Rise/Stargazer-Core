@@ -1,5 +1,8 @@
 package se.resonantri.stargazerutil.common.items;
 
+import net.minecraft.client.renderer.ItemMeshDefinition;
+import net.minecraft.client.renderer.block.model.ModelBakery;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
@@ -8,11 +11,15 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import se.resonantri.stargazerutil.StargazerUtil;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import se.resonantri.stargazerutil.utils.Constants;
 import se.resonantri.stargazerutil.utils.CreativeTab;
 
-public class ItemInkwell extends Item {
+import javax.annotation.Nonnull;
+
+public class ItemInkwell extends Item{
 
     public ItemInkwell() {
         setMaxStackSize(1);
@@ -21,18 +28,32 @@ public class ItemInkwell extends Item {
         setRegistryName(new ResourceLocation(Constants.MODID, "iteminkwell"));
     }
 
+    @SideOnly(Side.CLIENT)
     public void initModel() {
-        StargazerUtil.proxy.registerItemRenderer(this, 0, "iteminkwell");
+        ModelLoader.setCustomMeshDefinition(this, new ItemMeshDefinition(){
+                    @Override
+                    @Nonnull
+                    public ModelResourceLocation getModelLocation(@Nonnull ItemStack stack) {
+                        int inkAmount = stack.getTagCompound().getInteger("ink");
+                        int tier = new Double(Math.ceil(inkAmount/3f)).intValue();
+                        String name = getRegistryName().toString();
+                        return new ModelResourceLocation(new ResourceLocation(name + tier), "inventory");
+                    }
+                }
+        );
+        ModelBakery.registerItemVariants(this, new ResourceLocation("stargazerutil", "iteminkwell"));
     }
 
     @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (this.isInCreativeTab(tab)) {
-            ItemStack stack = new ItemStack(this);
-            NBTTagCompound nbt = new NBTTagCompound();
-            nbt.setInteger("ink", 0);
-            stack.setTagCompound(nbt);
-            items.add(stack);
+            for (int i = 0; i < 7; i++) {
+                ItemStack stack = new ItemStack(this);
+                NBTTagCompound nbt = new NBTTagCompound();
+                nbt.setInteger("ink", i * 3);
+                stack.setTagCompound(nbt);
+                items.add(stack);
+            }
         }
     }
 
@@ -50,7 +71,7 @@ public class ItemInkwell extends Item {
 
         if (stack.getTagCompound().hasKey("ink")) {
             int ink = stack.getTagCompound().getInteger("ink");
-            if (ink > 64) {
+            if (ink > 16) {
                 stack.getTagCompound().setInteger("ink", 16);
             }
             if (ink < 0) {
@@ -58,5 +79,4 @@ public class ItemInkwell extends Item {
             }
         }
     }
-
 }

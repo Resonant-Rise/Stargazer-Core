@@ -1,5 +1,6 @@
-package se.resonantri.stargazerutil.common.items.ResearchSystem;
+package se.resonantri.stargazerutil.common.items.ResearchSystem.manuscripts;
 
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
@@ -8,24 +9,24 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
 import org.lwjgl.input.Keyboard;
-import se.resonantri.stargazerutil.StargazerUtil;
 import se.resonantri.stargazerutil.utils.Constants;
 import se.resonantri.stargazerutil.utils.CreativeTab;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemManuscript extends Item {
-    public ItemManuscript() {
+public class ItemManuscriptAtlas extends Item{
+    public ItemManuscriptAtlas() {
         setMaxStackSize(1);
         setCreativeTab(CreativeTab.stargazerUtils);
-        setUnlocalizedName(Constants.MODID + ".itemmanuscript");
-        setRegistryName(new ResourceLocation(Constants.MODID, "itemmanuscript"));
+        setUnlocalizedName(Constants.MODID + ".itematlas");
+        setRegistryName(new ResourceLocation(Constants.MODID, "itematlas"));
     }
 
     public void initModel() {
-        StargazerUtil.proxy.registerItemRenderer(this, 0, "itemmanuscript");
+        ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
     }
 
     @Override
