@@ -1,0 +1,11 @@
+{
+    "variants": {
+        "tier=0":   { "model": "stargazerutil:iteminkwell0" },
+        "tier=1":   { "model": "stargazerutil:iteminkwell1" },
+        "tier=2":   { "model": "stargazerutil:iteminkwell2" },
+        "tier=3":   { "model": "stargazerutil:iteminkwell3" },
+        "tier=4":   { "model": "stargazerutil:iteminkwell4" },
+        "tier=5":   { "model": "stargazerutil:iteminkwell5" },
+        "tier=6":   { "model": "stargazerutil:iteminkwell6" }
+    }
+}

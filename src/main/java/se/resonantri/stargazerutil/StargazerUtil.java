@@ -10,7 +10,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import org.apache.logging.log4j.Logger;
 import se.resonantri.stargazerutil.common.CommonProxy;
-import se.resonantri.stargazerutil.compat.CompatModule;
 import se.resonantri.stargazerutil.utils.Constants;
 import se.resonantri.stargazerutil.utils.StargazerConfig;
 
@@ -27,22 +26,21 @@ public class StargazerUtil {
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
         proxy.preInit(event);
-        CompatModule.doModulesPreInit();
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        CompatModule.doModulesInit();
+        proxy.init(event);
     }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         StargazerConfig.postInit(event);
-        CompatModule.doModulesPostInit();
+        proxy.postInit(event);
     }
 
     @EventHandler
     public void serverStart(FMLServerStartingEvent event) {
-        CompatModule.doModulesLoadComplete();
+        proxy.serverStart(event);
     }
 }
