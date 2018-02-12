@@ -1,5 +1,7 @@
 package se.resonantri.stargazerutil.compat.tinkers.materials;
 
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import se.resonantri.stargazerutil.compat.CompatModule;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.client.MaterialRenderInfo;
@@ -45,6 +47,7 @@ public class AstralSorceryMaterials extends CompatModule {
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public void clientPostInit() {
         starmetal.setRenderInfo(new MaterialRenderInfo.Metal(0x0f5edd, 0.1f, 0.2f, 0f));
     }

@@ -19,4 +19,6 @@ public class ItemScrollTube extends Item{
         ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
     }
 
+
+
 }

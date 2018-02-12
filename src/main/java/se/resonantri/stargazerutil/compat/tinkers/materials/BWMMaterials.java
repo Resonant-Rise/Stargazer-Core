@@ -1,6 +1,8 @@
 package se.resonantri.stargazerutil.compat.tinkers.materials;
 
 import com.google.common.collect.Lists;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import se.resonantri.stargazerutil.compat.CompatModule;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.client.MaterialRenderInfo;
@@ -88,6 +90,7 @@ public final class BWMMaterials extends CompatModule {
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public void clientPostInit() {
         concHellfire.setRenderInfo(new MaterialRenderInfo.Metal(0x990000, 0.1f, 0.2f, 0f));
         diamond.setRenderInfo(new MaterialRenderInfo.Metal(0x19C9C9, 0.1f, 0.2f, 0f));

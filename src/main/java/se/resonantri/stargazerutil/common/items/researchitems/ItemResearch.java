@@ -1,4 +1,4 @@
-package se.resonantri.stargazerutil.common.items.ResearchSystem.manuscripts;
+package se.resonantri.stargazerutil.common.items.researchitems;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.resources.I18n;
@@ -17,12 +17,12 @@ import se.resonantri.stargazerutil.utils.CreativeTab;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemManuscriptAboriculture extends Item{
-    public ItemManuscriptAboriculture() {
+public class ItemResearch extends Item {
+    public ItemResearch() {
         setMaxStackSize(1);
         setCreativeTab(CreativeTab.stargazerUtils);
-        setUnlocalizedName(Constants.MODID + ".itemaboriculture");
-        setRegistryName(new ResourceLocation(Constants.MODID, "itemaboriculture"));
+        setUnlocalizedName(Constants.MODID + ".itemresearch");
+        setRegistryName(new ResourceLocation(Constants.MODID, "itemresearch"));
     }
 
     public void initModel() {
@@ -38,13 +38,13 @@ public class ItemManuscriptAboriculture extends Item{
         }
 
         if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
-            if (nbt.hasKey("Manuscript")) {
-                tooltip.add(TextFormatting.GRAY + "Manuscript: " + TextFormatting.LIGHT_PURPLE + I18n.format(nbt.getString("Manuscript")));
-            } else if (!nbt.hasKey("Manuscript")) {
-                tooltip.add(TextFormatting.GRAY + "Manuscript: " + TextFormatting.DARK_PURPLE + "NULL");
+            if (nbt.hasKey("Research")) {
+                tooltip.add(TextFormatting.GRAY + "Research: " + TextFormatting.LIGHT_PURPLE + I18n.format(nbt.getString("Research")));
+            } else if (!nbt.hasKey("Research")) {
+                tooltip.add(TextFormatting.GRAY + "Research: " + TextFormatting.DARK_PURPLE + "NULL");
             }
         } else if (!Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
-            tooltip.add(TextFormatting.GRAY + "Press Shift for Manuscript Information");
+            tooltip.add(TextFormatting.GRAY + "Press Shift for research Information");
         }
     }
 }

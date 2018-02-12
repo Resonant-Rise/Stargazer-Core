@@ -2,6 +2,8 @@ package se.resonantri.stargazerutil.compat.tinkers.materials;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import se.resonantri.stargazerutil.compat.CompatModule;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.client.MaterialRenderInfo;
@@ -42,6 +44,7 @@ public class TechRebornMaterials extends CompatModule {
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public void clientPostInit() {
         carbonMesh.setRenderInfo(new MaterialRenderInfo.Metal(0x262626, 0.1f, 0.2f, 0f));
     }

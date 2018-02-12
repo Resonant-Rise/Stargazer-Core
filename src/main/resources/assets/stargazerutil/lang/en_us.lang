@@ -8,11 +8,10 @@ item.stargazerutil.itemresearch.name=Research Notes
 item.stargazerutil.itemtheorem.name=Theorem
 
 //Manuscripts
-item.stargazerutil.itemaboriculture.name=Aboriculturist's Manuscript
-item.stargazerutil.itemagriculture.name=Agriculturist's Manuscript
-item.stargazerutil.itematlas.name=Atlas Manuscript
-item.stargazerutil.itemhusbandry.name=Manuscript of Animal Husbandry
-
+item.stargazerutil.itemaboriculture.name=Manuscript
+item.stargazerutil.itemagriculture.name=Manuscript
+item.stargazerutil.itematlas.name=Manuscript
+item.stargazerutil.itemhusbandry.name=Manuscript
 
 ##############
 #   Blocks   #

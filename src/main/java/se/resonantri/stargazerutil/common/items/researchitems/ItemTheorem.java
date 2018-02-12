@@ -1,4 +1,4 @@
-package se.resonantri.stargazerutil.common.items.ResearchSystem;
+package se.resonantri.stargazerutil.common.items.researchitems;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.resources.I18n;

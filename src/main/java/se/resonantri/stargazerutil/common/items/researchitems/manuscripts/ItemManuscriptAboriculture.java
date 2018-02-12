@@ -1,11 +1,13 @@
-package se.resonantri.stargazerutil.common.items.ResearchSystem.manuscripts;
+package se.resonantri.stargazerutil.common.items.researchitems.manuscripts;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
@@ -17,16 +19,27 @@ import se.resonantri.stargazerutil.utils.CreativeTab;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemManuscriptHusbandry extends Item{
-    public ItemManuscriptHusbandry() {
+public class ItemManuscriptAboriculture extends Item{
+    public ItemManuscriptAboriculture() {
         setMaxStackSize(1);
         setCreativeTab(CreativeTab.stargazerUtils);
-        setUnlocalizedName(Constants.MODID + ".itemhusbandry");
-        setRegistryName(new ResourceLocation(Constants.MODID, "itemhusbandry"));
+        setUnlocalizedName(Constants.MODID + ".itemaboriculture");
+        setRegistryName(new ResourceLocation(Constants.MODID, "itemaboriculture"));
     }
 
     public void initModel() {
         ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+    }
+
+    @Override
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+        if (this.isInCreativeTab(tab)) {
+            ItemStack stack = new ItemStack(this);
+            NBTTagCompound nbt = new NBTTagCompound();
+            nbt.setString("Manuscript", "Aboriculture");
+            stack.setTagCompound(nbt);
+            items.add(stack);
+        }
     }
 
     @Override

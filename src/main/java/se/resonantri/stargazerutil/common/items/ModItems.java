@@ -3,12 +3,12 @@ package se.resonantri.stargazerutil.common.items;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import se.resonantri.stargazerutil.common.items.ResearchSystem.ItemResearch;
-import se.resonantri.stargazerutil.common.items.ResearchSystem.ItemTheorem;
-import se.resonantri.stargazerutil.common.items.ResearchSystem.manuscripts.ItemManuscriptAboriculture;
-import se.resonantri.stargazerutil.common.items.ResearchSystem.manuscripts.ItemManuscriptAgriculture;
-import se.resonantri.stargazerutil.common.items.ResearchSystem.manuscripts.ItemManuscriptAtlas;
-import se.resonantri.stargazerutil.common.items.ResearchSystem.manuscripts.ItemManuscriptHusbandry;
+import se.resonantri.stargazerutil.common.items.researchitems.ItemResearch;
+import se.resonantri.stargazerutil.common.items.researchitems.ItemTheorem;
+import se.resonantri.stargazerutil.common.items.researchitems.manuscripts.ItemManuscriptAboriculture;
+import se.resonantri.stargazerutil.common.items.researchitems.manuscripts.ItemManuscriptAgriculture;
+import se.resonantri.stargazerutil.common.items.researchitems.manuscripts.ItemManuscriptAtlas;
+import se.resonantri.stargazerutil.common.items.researchitems.manuscripts.ItemManuscriptHusbandry;
 
 public class ModItems {
 

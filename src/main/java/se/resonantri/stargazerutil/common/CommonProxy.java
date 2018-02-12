@@ -3,7 +3,6 @@ package se.resonantri.stargazerutil.common;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -20,13 +19,12 @@ import se.resonantri.stargazerutil.common.blocks.ModBlocks;
 import se.resonantri.stargazerutil.common.items.ItemInkwell;
 import se.resonantri.stargazerutil.common.items.ItemParchment;
 import se.resonantri.stargazerutil.common.items.ItemQuill;
-import se.resonantri.stargazerutil.common.items.ResearchSystem.ItemResearch;
-import se.resonantri.stargazerutil.common.items.ResearchSystem.ItemTheorem;
-import se.resonantri.stargazerutil.common.items.ResearchSystem.manuscripts.ItemManuscriptAboriculture;
-import se.resonantri.stargazerutil.common.items.ResearchSystem.manuscripts.ItemManuscriptAgriculture;
-import se.resonantri.stargazerutil.common.items.ResearchSystem.manuscripts.ItemManuscriptAtlas;
-import se.resonantri.stargazerutil.common.items.ResearchSystem.manuscripts.ItemManuscriptHusbandry;
-import se.resonantri.stargazerutil.common.research.triggers.TestCase;
+import se.resonantri.stargazerutil.common.items.researchitems.ItemResearch;
+import se.resonantri.stargazerutil.common.items.researchitems.ItemTheorem;
+import se.resonantri.stargazerutil.common.items.researchitems.manuscripts.ItemManuscriptAboriculture;
+import se.resonantri.stargazerutil.common.items.researchitems.manuscripts.ItemManuscriptAgriculture;
+import se.resonantri.stargazerutil.common.items.researchitems.manuscripts.ItemManuscriptAtlas;
+import se.resonantri.stargazerutil.common.items.researchitems.manuscripts.ItemManuscriptHusbandry;
 import se.resonantri.stargazerutil.common.tiles.TileBookBindingTable;
 import se.resonantri.stargazerutil.common.tiles.TileScribeTable;
 import se.resonantri.stargazerutil.compat.CompatModule;
@@ -74,7 +72,6 @@ public class CommonProxy {
 //    }
 
     public void preInit(FMLPreInitializationEvent e) {
-        MinecraftForge.EVENT_BUS.register(new TestCase());
         CompatModule.doModulesPreInit();
         logger.info("Pre-Initilization");
     }
