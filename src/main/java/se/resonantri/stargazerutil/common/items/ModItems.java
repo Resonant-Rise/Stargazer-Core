@@ -3,6 +3,7 @@ package se.resonantri.stargazerutil.common.items;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import se.resonantri.stargazerutil.common.items.researchitems.inkwell.ItemInkwell;
 import se.resonantri.stargazerutil.common.items.researchitems.ItemResearch;
 import se.resonantri.stargazerutil.common.items.researchitems.ItemTheorem;
 import se.resonantri.stargazerutil.common.items.researchitems.manuscripts.ItemManuscriptAboriculture;

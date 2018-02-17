@@ -14,6 +14,8 @@ public class TileScribeTable extends TileEntity implements ITickable {
     public static int SIZE;
     private ItemStackHandler itemStackHandler = new TileEntityItemStackHandler(this, SIZE);
 
+
+
     public boolean canInteractWith(EntityPlayer playerIn) {
         return !isInvalid() && playerIn.getDistanceSqToCenter(pos.add(0.5D, 0.5D, 0.5D)) <= 64D;
     }
