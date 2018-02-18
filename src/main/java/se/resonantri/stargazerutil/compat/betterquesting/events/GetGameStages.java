@@ -16,10 +16,8 @@ public class GetGameStages {
     @SubscribeEvent
     public void onGameStageAdded(GameStageEvent.Added event) {
         EntityPlayer player = event.getPlayer();
-
         if (player == null)
             return;
-
         for (Map.Entry<TaskGetGameStage, IQuest> set : getGameStages(player.getUniqueID()).entrySet()) {
             set.getKey().getGameStage(player);
         }

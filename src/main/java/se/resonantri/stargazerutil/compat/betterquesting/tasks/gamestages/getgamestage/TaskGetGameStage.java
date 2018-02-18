@@ -10,7 +10,6 @@ import betterquesting.api.questing.IQuest;
 import betterquesting.api.questing.tasks.IProgression;
 import betterquesting.api.questing.tasks.ITask;
 import betterquesting.api.questing.tasks.ITickableTask;
-import net.darkhax.gamestages.capabilities.PlayerDataHandler;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTBase;
@@ -35,6 +34,13 @@ public class TaskGetGameStage implements ITask, IProgression<Boolean>, ITickable
     public final HashMap<UUID, Boolean> userProgress = new HashMap<UUID, Boolean>();
     public String targetGameStage = "test";
 
+    public void getGameStage(@Nonnull EntityPlayer player) {
+        if (!isComplete(player.getUniqueID())) {
+            if (getStageData(player).hasUnlockedStage(targetGameStage)) {
+                this.setComplete(player.getUniqueID());
+            }
+        }
+    }
 
     @Override
     public void setUserProgress(UUID uuid, Boolean progress) {
@@ -43,10 +49,9 @@ public class TaskGetGameStage implements ITask, IProgression<Boolean>, ITickable
 
     @Override
     public Boolean getUsersProgress(UUID... uuids) {
-        Boolean progress = false;
         for (UUID uuid : uuids){
             Boolean n = userProgress.get(uuid);
-            if (!n == progress){
+            if (n){
                 return true;
             }
         }
@@ -55,9 +60,8 @@ public class TaskGetGameStage implements ITask, IProgression<Boolean>, ITickable
 
     @Override
     public Boolean getGlobalProgress() {
-        Boolean progress = false;
         for (Boolean value : userProgress.values()){
-            if (value != progress){
+            if (value){
                 return true;
             }
         }
@@ -86,7 +90,7 @@ public class TaskGetGameStage implements ITask, IProgression<Boolean>, ITickable
             return;
         }
         String targetStage = targetGameStage;
-        if (PlayerDataHandler.getStageData(player).hasUnlockedStage(targetStage)){
+        if (getStageData(player).hasUnlockedStage(targetStage)){
             setComplete(playerID);
         }
     }
@@ -212,10 +216,10 @@ public class TaskGetGameStage implements ITask, IProgression<Boolean>, ITickable
     public void updateTask(EntityPlayer entityPlayer, IQuest iQuest) {
         UUID playerId = QuestingAPI.getQuestingUUID(entityPlayer);
         if (entityPlayer.ticksExisted%60 == 0 && !QuestingAPI.getAPI(ApiReference.SETTINGS).getProperty(NativeProps.EDIT_MODE)){
-            if (!PlayerDataHandler.getStageData(entityPlayer).hasUnlockedStage(targetGameStage)){
-                setUserProgress(playerId, PlayerDataHandler.getStageData(entityPlayer).hasUnlockedStage(targetGameStage));
+            if (!getStageData(entityPlayer).hasUnlockedStage(targetGameStage)){
+                setUserProgress(playerId, getStageData(entityPlayer).hasUnlockedStage(targetGameStage));
             }
-            if (PlayerDataHandler.getStageData(entityPlayer).hasUnlockedStage(targetGameStage)){
+            if (getStageData(entityPlayer).hasUnlockedStage(targetGameStage)){
                 setComplete(playerId);
             }
         }
