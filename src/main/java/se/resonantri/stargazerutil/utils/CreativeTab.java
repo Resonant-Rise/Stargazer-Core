@@ -1,10 +1,8 @@
 package se.resonantri.stargazerutil.utils;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import se.resonantri.stargazerutil.common.items.ItemInkwell;
 import se.resonantri.stargazerutil.common.items.ModItems;
 
 public class CreativeTab extends CreativeTabs {

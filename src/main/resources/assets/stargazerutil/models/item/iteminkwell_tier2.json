@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "stargazerutil:items/iteminkwell2"
+    "layer0": "stargazerutil:items/toolinkwell2"
   }
 }

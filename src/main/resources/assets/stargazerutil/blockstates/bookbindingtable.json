@@ -1,0 +1,14 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "stargazerutil:bookbindingtable"
+  },
+  "variants": {
+    "normal": {
+      "model": "stargazerutil:bookbindingtable"
+    },
+    "inventory": {
+      "model": "stargazerutil:bookbindingtable"
+    }
+  }
+}

@@ -1,5 +1,8 @@
 package se.resonantri.stargazerutil.common;
 
+import betterquesting.api.api.ApiReference;
+import betterquesting.api.api.QuestingAPI;
+import betterquesting.api.questing.tasks.ITaskRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -16,7 +19,7 @@ import se.resonantri.stargazerutil.client.GuiProxy;
 import se.resonantri.stargazerutil.common.blocks.BlockBookBindingTable;
 import se.resonantri.stargazerutil.common.blocks.BlockScribeTable;
 import se.resonantri.stargazerutil.common.blocks.ModBlocks;
-import se.resonantri.stargazerutil.common.items.ItemInkwell;
+import se.resonantri.stargazerutil.common.items.researchitems.inkwell.ItemInkwell;
 import se.resonantri.stargazerutil.common.items.ItemParchment;
 import se.resonantri.stargazerutil.common.items.ItemQuill;
 import se.resonantri.stargazerutil.common.items.researchitems.ItemResearch;
@@ -28,6 +31,7 @@ import se.resonantri.stargazerutil.common.items.researchitems.manuscripts.ItemMa
 import se.resonantri.stargazerutil.common.tiles.TileBookBindingTable;
 import se.resonantri.stargazerutil.common.tiles.TileScribeTable;
 import se.resonantri.stargazerutil.compat.CompatModule;
+import se.resonantri.stargazerutil.compat.betterquesting.tasks.gamestages.getgamestage.TaskGetGameStageFactory;
 
 import static se.resonantri.stargazerutil.StargazerUtil.instance;
 import static se.resonantri.stargazerutil.StargazerUtil.logger;
@@ -61,6 +65,11 @@ public class CommonProxy {
         event.getRegistry().register(new ItemManuscriptHusbandry());
         event.getRegistry().register(new ItemBlock(ModBlocks.scribeTable).setRegistryName(ModBlocks.scribeTable.getRegistryName()));
         event.getRegistry().register(new ItemBlock(ModBlocks.bookBindingTable).setRegistryName(ModBlocks.bookBindingTable.getRegistryName()));
+    }
+
+    public void registerExpansion(){
+        ITaskRegistry taskRegistry = QuestingAPI.getAPI(ApiReference.TASK_REG);
+        taskRegistry.registerTask(TaskGetGameStageFactory.INSTANCE);
     }
 
 //    @SubscribeEvent
