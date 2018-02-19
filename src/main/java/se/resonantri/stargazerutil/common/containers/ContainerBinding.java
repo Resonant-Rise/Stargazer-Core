@@ -1,4 +1,4 @@
-package se.resonantri.stargazerutil.common.container;
+package se.resonantri.stargazerutil.common.containers;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -7,12 +7,12 @@ import net.minecraft.inventory.Slot;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import se.resonantri.stargazerutil.common.tiles.TileBookBindingTable;
+import se.resonantri.stargazerutil.common.tiles.TileBinding;
 
-public class BookBindingTableContainer extends Container {
-    private TileBookBindingTable te;
+public class ContainerBinding extends Container {
+    private TileBinding te;
 
-    public BookBindingTableContainer(IInventory playerInventory, TileBookBindingTable te) {
+    public ContainerBinding(IInventory playerInventory, TileBinding te) {
         this.te = te;
         addOwnSlots();
         addPlayerSlots(playerInventory);

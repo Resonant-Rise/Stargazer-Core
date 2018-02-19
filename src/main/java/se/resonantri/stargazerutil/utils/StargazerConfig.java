@@ -22,7 +22,8 @@ public class StargazerConfig {
 
         public static class Modules {
             @Comment({"A list of all mods that SG:U has integrated compatability for", "Setting any of these to false disables the respective compat"})
-            public static Map<String, Boolean> compat = Maps.newHashMap(Maps.toMap(CompatModule.moduleClasses.keySet(), (s) -> Boolean.TRUE));
+            public static Map<String, Boolean> compat = Maps.newHashMap(Maps.toMap(CompatModule.moduleClasses.keySet(), (k) -> Boolean.TRUE));
+            //public static Map<String, Boolean> compat = Maps.newHashMap(CompatModule.moduleClasses.keySet().stream().collect(Collectors.toMap((k)-> k, (k)->true)));
         }
 
         public static class BetterQuesting {
@@ -31,7 +32,7 @@ public class StargazerConfig {
 
             @Comment("Enable Skillable Tasks/Rewards")
             public static boolean SkillableTasksRewards = true;
-
+            
             @Comment("Enable Tinker's Construct Tasks/Rewards")
             public static boolean TiCoTasksRewards = true;
         }

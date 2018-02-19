@@ -16,20 +16,20 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import se.resonantri.stargazerutil.client.GuiProxy;
-import se.resonantri.stargazerutil.common.blocks.BlockBookBindingTable;
-import se.resonantri.stargazerutil.common.blocks.BlockScribeTable;
+import se.resonantri.stargazerutil.common.blocks.BlockBinding;
+import se.resonantri.stargazerutil.common.blocks.BlockScribing;
 import se.resonantri.stargazerutil.common.blocks.ModBlocks;
-import se.resonantri.stargazerutil.common.items.researchitems.inkwell.ItemInkwell;
 import se.resonantri.stargazerutil.common.items.ItemParchment;
 import se.resonantri.stargazerutil.common.items.ItemQuill;
 import se.resonantri.stargazerutil.common.items.researchitems.ItemResearch;
 import se.resonantri.stargazerutil.common.items.researchitems.ItemTheorem;
+import se.resonantri.stargazerutil.common.items.researchitems.inkwell.ItemInkwell;
 import se.resonantri.stargazerutil.common.items.researchitems.manuscripts.ItemManuscriptAboriculture;
 import se.resonantri.stargazerutil.common.items.researchitems.manuscripts.ItemManuscriptAgriculture;
 import se.resonantri.stargazerutil.common.items.researchitems.manuscripts.ItemManuscriptAtlas;
 import se.resonantri.stargazerutil.common.items.researchitems.manuscripts.ItemManuscriptHusbandry;
-import se.resonantri.stargazerutil.common.tiles.TileBookBindingTable;
-import se.resonantri.stargazerutil.common.tiles.TileScribeTable;
+import se.resonantri.stargazerutil.common.tiles.TileBinding;
+import se.resonantri.stargazerutil.common.tiles.TileScribing;
 import se.resonantri.stargazerutil.compat.CompatModule;
 import se.resonantri.stargazerutil.compat.betterquesting.tasks.gamestages.getgamestage.TaskGetGameStageFactory;
 
@@ -43,13 +43,13 @@ public class CommonProxy {
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
-        Block scribeTable = new BlockScribeTable();
+        Block scribeTable = new BlockScribing();
         event.getRegistry().register(scribeTable);
-        GameRegistry.registerTileEntity(TileScribeTable.class, scribeTable.getRegistryName().toString());
+        GameRegistry.registerTileEntity(TileScribing.class, scribeTable.getRegistryName().toString());
 
-        Block bookBindingTable = new BlockBookBindingTable();
+        Block bookBindingTable = new BlockBinding();
         event.getRegistry().register(bookBindingTable);
-        GameRegistry.registerTileEntity(TileBookBindingTable.class, bookBindingTable.getRegistryName().toString());
+        GameRegistry.registerTileEntity(TileBinding.class, bookBindingTable.getRegistryName().toString());
     }
 
     @SubscribeEvent
@@ -63,8 +63,8 @@ public class CommonProxy {
         event.getRegistry().register(new ItemManuscriptAgriculture());
         event.getRegistry().register(new ItemManuscriptAtlas());
         event.getRegistry().register(new ItemManuscriptHusbandry());
-        event.getRegistry().register(new ItemBlock(ModBlocks.scribeTable).setRegistryName(ModBlocks.scribeTable.getRegistryName()));
-        event.getRegistry().register(new ItemBlock(ModBlocks.bookBindingTable).setRegistryName(ModBlocks.bookBindingTable.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.blockScribing).setRegistryName(ModBlocks.blockScribing.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.blockBinding).setRegistryName(ModBlocks.blockBinding.getRegistryName()));
     }
 
     public void registerExpansion(){

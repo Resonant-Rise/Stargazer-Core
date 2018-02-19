@@ -1,0 +1,14 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "stargazerutil:block_table_double"
+  },
+  "variants": {
+    "normal": {
+      "model": "stargazerutil:block_table_double"
+    },
+    "inventory": {
+      "model": "stargazerutil:block_table_double"
+    }
+  }
+}

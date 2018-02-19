@@ -1,0 +1,14 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "stargazerutil:block_binding"
+  },
+  "variants": {
+    "normal": {
+      "model": "stargazerutil:block_binding"
+    },
+    "inventory": {
+      "model": "stargazerutil:block_binding"
+    }
+  }
+}
