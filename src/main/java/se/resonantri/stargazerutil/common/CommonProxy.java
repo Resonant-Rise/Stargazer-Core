@@ -6,6 +6,7 @@ import betterquesting.api.questing.tasks.ITaskRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -15,15 +16,18 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import se.resonantri.stargazerutil.api.cap.DefaultKnowledgeHandler;
+import se.resonantri.stargazerutil.api.cap.IKnowledgeHandler;
+import se.resonantri.stargazerutil.api.cap.KnowledgeStorage;
 import se.resonantri.stargazerutil.client.GuiProxy;
 import se.resonantri.stargazerutil.common.blocks.BlockBookBindingTable;
 import se.resonantri.stargazerutil.common.blocks.BlockScribeTable;
 import se.resonantri.stargazerutil.common.blocks.ModBlocks;
-import se.resonantri.stargazerutil.common.items.researchitems.inkwell.ItemInkwell;
 import se.resonantri.stargazerutil.common.items.ItemParchment;
 import se.resonantri.stargazerutil.common.items.ItemQuill;
 import se.resonantri.stargazerutil.common.items.researchitems.ItemResearch;
 import se.resonantri.stargazerutil.common.items.researchitems.ItemTheorem;
+import se.resonantri.stargazerutil.common.items.researchitems.inkwell.ItemInkwell;
 import se.resonantri.stargazerutil.common.items.researchitems.manuscripts.ItemManuscriptAboriculture;
 import se.resonantri.stargazerutil.common.items.researchitems.manuscripts.ItemManuscriptAgriculture;
 import se.resonantri.stargazerutil.common.items.researchitems.manuscripts.ItemManuscriptAtlas;
@@ -67,7 +71,7 @@ public class CommonProxy {
         event.getRegistry().register(new ItemBlock(ModBlocks.bookBindingTable).setRegistryName(ModBlocks.bookBindingTable.getRegistryName()));
     }
 
-    public void registerExpansion(){
+    public void registerExpansion() {
         ITaskRegistry taskRegistry = QuestingAPI.getAPI(ApiReference.TASK_REG);
         taskRegistry.registerTask(TaskGetGameStageFactory.INSTANCE);
     }
@@ -80,8 +84,10 @@ public class CommonProxy {
 //        event.getRegistry().register(new ShapelessOreRecipe(new ResourceLocation(Constants.MODID + ":inkwell"), stack, new ItemStack(INKWELL), new ItemStack(Items.DYE, 1, 0)).setRegistryName(new ResourceLocation(Constants.MODID + ":inkwellrefill")));
 //    }
 
+    @SuppressWarnings("deprecation")
     public void preInit(FMLPreInitializationEvent e) {
         CompatModule.doModulesPreInit();
+        CapabilityManager.INSTANCE.register(IKnowledgeHandler.class, new KnowledgeStorage(), DefaultKnowledgeHandler.class);
         logger.info("Pre-Initilization");
     }
 
@@ -96,7 +102,7 @@ public class CommonProxy {
         logger.info("Post-Initilization");
     }
 
-    public void serverStart(FMLServerStartingEvent e){
+    public void serverStart(FMLServerStartingEvent e) {
         CompatModule.doModulesLoadComplete();
         logger.info("Server Start");
     }

@@ -8,7 +8,7 @@ import se.resonantri.stargazerutil.utils.ItemStackUtility;
 import java.util.HashSet;
 import java.util.Set;
 
-public class FilterHandler implements IFilterHandler{
+public class FilterHandler implements IFilterHandler {
     private final Set<String> acceptedItemStacks = new HashSet<>();
     private final Set<String> rejectedItemStacks = new HashSet<>();
     private final Set<Integer> validOreIds = new HashSet<>();
