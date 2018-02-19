@@ -16,9 +16,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import se.resonantri.stargazerutil.client.GuiProxy;
-import se.resonantri.stargazerutil.common.blocks.BlockBinding;
-import se.resonantri.stargazerutil.common.blocks.BlockScribing;
-import se.resonantri.stargazerutil.common.blocks.ModBlocks;
+import se.resonantri.stargazerutil.common.blocks.*;
 import se.resonantri.stargazerutil.common.items.ItemParchment;
 import se.resonantri.stargazerutil.common.items.ItemQuill;
 import se.resonantri.stargazerutil.common.items.researchitems.ItemResearch;
@@ -43,13 +41,19 @@ public class CommonProxy {
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
-        Block scribeTable = new BlockScribing();
-        event.getRegistry().register(scribeTable);
-        GameRegistry.registerTileEntity(TileScribing.class, scribeTable.getRegistryName().toString());
+        Block blockScribing = new BlockScribing();
+        event.getRegistry().register(blockScribing);
+        GameRegistry.registerTileEntity(TileScribing.class, blockScribing.getRegistryName().toString());
 
-        Block bookBindingTable = new BlockBinding();
-        event.getRegistry().register(bookBindingTable);
-        GameRegistry.registerTileEntity(TileBinding.class, bookBindingTable.getRegistryName().toString());
+        Block blockBinding = new BlockBinding();
+        event.getRegistry().register(blockBinding);
+        GameRegistry.registerTileEntity(TileBinding.class, blockBinding.getRegistryName().toString());
+
+        Block blockTable = new BlockTable();
+        event.getRegistry().register(blockTable);
+
+        Block blockTableDouble = new BlockTableDouble();
+        event.getRegistry().register(blockTableDouble);
     }
 
     @SubscribeEvent
@@ -65,6 +69,8 @@ public class CommonProxy {
         event.getRegistry().register(new ItemManuscriptHusbandry());
         event.getRegistry().register(new ItemBlock(ModBlocks.blockScribing).setRegistryName(ModBlocks.blockScribing.getRegistryName()));
         event.getRegistry().register(new ItemBlock(ModBlocks.blockBinding).setRegistryName(ModBlocks.blockBinding.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.blockTable).setRegistryName(ModBlocks.blockTable.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.blockTableDouble).setRegistryName(ModBlocks.blockTableDouble.getRegistryName()));
     }
 
     public void registerExpansion(){
