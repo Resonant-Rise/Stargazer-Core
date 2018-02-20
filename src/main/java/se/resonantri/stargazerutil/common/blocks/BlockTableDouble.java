@@ -3,14 +3,19 @@ package se.resonantri.stargazerutil.common.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -28,7 +33,33 @@ public class BlockTableDouble extends Block {
         setCreativeTab(CreativeTab.stargazerUtils);
         setHardness(7.5f);
         setSoundType(SoundType.WOOD);
-//        this.setDefaultState(this.getDefaultState().withProperty(BASE, true));
+    }
+
+    @Override
+    protected BlockStateContainer createBlockState()
+    {
+        return new BlockStateContainer(this, new IProperty[]{FACING});
+    }
+
+    @Override
+    public int getMetaFromState(IBlockState state)
+    {
+        return (state.getValue(FACING)).getHorizontalIndex();
+    }
+
+    @Override
+    public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY,
+                                            float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
+        return super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand).withProperty(FACING, placer.getHorizontalFacing());
+    }
+
+    @Override
+    public IBlockState getStateFromMeta(int meta)
+    {
+        /*EnumFacing enumfacing = EnumFacing.getHorizontal(meta);
+        if (enumfacing.getAxis() == EnumFacing.Axis.Y) {enumfacing = EnumFacing.NORTH;}
+        return getDefaultState().withProperty(FACING, enumfacing); */
+        return getDefaultState().withProperty(FACING,EnumFacing.getHorizontal(meta));
     }
 
     @SideOnly(Side.CLIENT)
@@ -60,9 +91,7 @@ public class BlockTableDouble extends Block {
 
     @Override
     @SuppressWarnings("deprecation")
-    public boolean isOpaqueCube(IBlockState state) {
-        return isFull(state);
-    }
+    public boolean isOpaqueCube(IBlockState state) { return isFull(state); }
 
     @Override
     @SuppressWarnings("deprecation")
