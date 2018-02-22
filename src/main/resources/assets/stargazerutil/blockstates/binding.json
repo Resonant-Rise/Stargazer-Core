@@ -1,0 +1,14 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "stargazerutil:block_binding"
+  },
+  "variants": {
+    "normal":       { "model": "stargazerutil:block_binding" },
+    "facing=north": { "model": "stargazerutil:block_binding" },
+    "facing=south": { "model": "stargazerutil:block_binding", "y": 180 },
+    "facing=west":  { "model": "stargazerutil:block_binding", "y": 270 },
+    "facing=east":  { "model": "stargazerutil:block_binding", "y": 90  },
+    "inventory":    { "model": "stargazerutil:block_binding" }
+  }
+}

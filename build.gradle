@@ -61,6 +61,7 @@ dependencies {
     deobfCompile "net.darkhax.itemstages:ItemStages-1.12.2:1.0.16"
     deobfCompile "com.azanor.baubles:Baubles:1.12-1.5.2"
     deobfCompile "mcp.mobius.waila:Hwyla:${hwyla_version}"
+    deobfCompile "com.teamacronymcoders.base:base:${minecraft_version}-${base_version}-SNAPSHOT.+"
     deobfCompile("blusunrize:ImmersiveEngineering:${ieVersion}") {
         exclude module: "crafttweaker"
     }
