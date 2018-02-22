@@ -21,7 +21,7 @@ public class DefaultKnowledgeHandler implements IKnowledgeHandler {
         knowledgeList.remove(knowledge);
     }
 
-    public void getLength(){
+    public void getLength() {
         knowledgeList.size();
     }
 }

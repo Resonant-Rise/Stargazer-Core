@@ -15,13 +15,16 @@ public enum ENUM_TTYPE implements IStringSerializable {
         this.index = IndexIn;
     }
 
+    public static ENUM_TTYPE indexOf(int index) {
+        return ENUM_TTYPE.values()[index];
+    }
+
     @Override
     public String getName() {
         return this.name();
     }
-    public int getIndex()
-    {
+
+    public int getIndex() {
         return this.index;
     }
-    public static ENUM_TTYPE indexOf (int index) {return ENUM_TTYPE.values()[index];};
 }

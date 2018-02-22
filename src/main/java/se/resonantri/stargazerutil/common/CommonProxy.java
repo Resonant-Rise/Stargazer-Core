@@ -20,13 +20,10 @@ import se.resonantri.stargazerutil.api.cap.DefaultKnowledgeHandler;
 import se.resonantri.stargazerutil.api.cap.IKnowledgeHandler;
 import se.resonantri.stargazerutil.api.cap.KnowledgeStorage;
 import se.resonantri.stargazerutil.client.GuiProxy;
-<<<<<<< HEAD
-import se.resonantri.stargazerutil.common.blocks.BlockBookBindingTable;
-import se.resonantri.stargazerutil.common.blocks.BlockScribeTable;
+import se.resonantri.stargazerutil.common.blocks.BlockBinding;
+import se.resonantri.stargazerutil.common.blocks.BlockScribing;
+import se.resonantri.stargazerutil.common.blocks.BlockTable;
 import se.resonantri.stargazerutil.common.blocks.ModBlocks;
-=======
-import se.resonantri.stargazerutil.common.blocks.*;
->>>>>>> master
 import se.resonantri.stargazerutil.common.items.ItemParchment;
 import se.resonantri.stargazerutil.common.items.ItemQuill;
 import se.resonantri.stargazerutil.common.items.researchitems.ItemResearch;
@@ -62,8 +59,8 @@ public class CommonProxy {
         Block blockTable = new BlockTable();
         event.getRegistry().register(blockTable);
 
-        Block blockTableDouble = new BlockTableDouble();
-        event.getRegistry().register(blockTableDouble);
+        //Block blockTableDouble = new BlockTableDouble();
+        //event.getRegistry().register(blockTableDouble);
     }
 
     @SubscribeEvent
@@ -80,7 +77,7 @@ public class CommonProxy {
         event.getRegistry().register(new ItemBlock(ModBlocks.blockScribing).setRegistryName(ModBlocks.blockScribing.getRegistryName()));
         event.getRegistry().register(new ItemBlock(ModBlocks.blockBinding).setRegistryName(ModBlocks.blockBinding.getRegistryName()));
         event.getRegistry().register(new ItemBlock(ModBlocks.blockTable).setRegistryName(ModBlocks.blockTable.getRegistryName()));
-        event.getRegistry().register(new ItemBlock(ModBlocks.blockTableDouble).setRegistryName(ModBlocks.blockTableDouble.getRegistryName()));
+        //event.getRegistry().register(new ItemBlock(ModBlocks.blockTableDouble).setRegistryName(ModBlocks.blockTableDouble.getRegistryName()));
     }
 
     public void registerExpansion() {

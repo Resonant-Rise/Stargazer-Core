@@ -9,13 +9,11 @@ import net.minecraftforge.common.capabilities.Capability;
 import javax.annotation.Nullable;
 
 public class KnowledgeStorage implements Capability.IStorage<IKnowledgeHandler> {
-    int length
 
     @Nullable
     @Override
     public NBTBase writeNBT(Capability<IKnowledgeHandler> capability, IKnowledgeHandler instance, EnumFacing side) {
         final NBTTagList compound = new NBTTagList();
-        for (int i = 0; i <)
         return compound;
     }
 

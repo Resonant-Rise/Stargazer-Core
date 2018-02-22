@@ -13,23 +13,20 @@ public class PropertyTType extends PropertyEnum<ENUM_TTYPE> {
     protected PropertyTType(String name, Class<ENUM_TTYPE> valueClass, Collection<ENUM_TTYPE> allowedValues) {
         super(name, ENUM_TTYPE.class, allowedValues);
     }
-    protected PropertyTType(String name, Collection<ENUM_TTYPE> values)
-    {
+
+    protected PropertyTType(String name, Collection<ENUM_TTYPE> values) {
         super(name, ENUM_TTYPE.class, values);
     }
 
-    public static PropertyTType create(String name)
-    {
+    public static PropertyTType create(String name) {
         return create(name, Predicates.alwaysTrue());
     }
 
-    public static PropertyTType create(String name, Predicate<ENUM_TTYPE> filter)
-    {
+    public static PropertyTType create(String name, Predicate<ENUM_TTYPE> filter) {
         return create(name, Collections2.filter(Lists.newArrayList(ENUM_TTYPE.values()), filter));
     }
 
-    public static PropertyTType create(String name, Collection<ENUM_TTYPE> values)
-    {
+    public static PropertyTType create(String name, Collection<ENUM_TTYPE> values) {
         return new PropertyTType(name, values);
     }
 }

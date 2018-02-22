@@ -3,7 +3,6 @@ package se.resonantri.stargazerutil.common.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
@@ -23,7 +22,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import se.resonantri.stargazerutil.utils.Constants;
 import se.resonantri.stargazerutil.utils.CreativeTab;
 
-public class BlockTable extends Block{
+public class BlockTable extends Block {
 
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
     public static final PropertyTType TTYPE = PropertyTType.create("ttype");
@@ -46,34 +45,32 @@ public class BlockTable extends Block{
     @Override
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
 
-        return super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand).withProperty(FACING, placer.getHorizontalFacing()).withProperty(TTYPE,ENUM_TTYPE.SINGLE);
+        return super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand).withProperty(FACING, placer.getHorizontalFacing()).withProperty(TTYPE, ENUM_TTYPE.SINGLE);
     }
 
     @Deprecated
-    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
-    {
-        if (face==EnumFacing.UP)
-            {return BlockFaceShape.SOLID;}
-        else
-            {return BlockFaceShape.UNDEFINED;}
+    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
+        if (face == EnumFacing.UP) {
+            return BlockFaceShape.SOLID;
+        } else {
+            return BlockFaceShape.UNDEFINED;
+        }
     }
 
     @Override
-    protected BlockStateContainer createBlockState()
-    {
-        return new BlockStateContainer(this, new IProperty[]{FACING, TTYPE});
+    protected BlockStateContainer createBlockState() {
+        return new BlockStateContainer(this, FACING, TTYPE);
     }
 
     @Override
-    public int getMetaFromState(IBlockState state)
-    {
-        return (state.getValue(FACING)).getHorizontalIndex()+((state.getValue(TTYPE)).getIndex()<<2);
+    public int getMetaFromState(IBlockState state) {
+        return (state.getValue(FACING)).getHorizontalIndex() + ((state.getValue(TTYPE)).getIndex() << 2);
     }
 
     @Override
-    public IBlockState getStateFromMeta(int meta)
-    {
-        return getDefaultState().withProperty(FACING,EnumFacing.getHorizontal(meta&0b11)).withProperty(TTYPE, ENUM_TTYPE.indexOf(meta >> 2));
+    @SuppressWarnings("deprecation")
+    public IBlockState getStateFromMeta(int meta) {
+        return getDefaultState().withProperty(FACING, EnumFacing.getHorizontal(meta & 0b11)).withProperty(TTYPE, ENUM_TTYPE.indexOf(meta >> 2));
     }
 
     protected boolean isFull(IBlockState state) {
@@ -106,5 +103,7 @@ public class BlockTable extends Block{
 
     @Override
     @SuppressWarnings("deprecation")
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {return FULL_BLOCK_AABB;}
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+        return FULL_BLOCK_AABB;
+    }
 }

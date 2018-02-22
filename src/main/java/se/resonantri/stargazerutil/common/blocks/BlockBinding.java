@@ -27,15 +27,8 @@ import se.resonantri.stargazerutil.utils.CreativeTab;
 
 import javax.annotation.Nonnull;
 
-<<<<<<< HEAD:src/main/java/se/resonantri/stargazerutil/common/blocks/BlockBookBindingTable.java
-public class BlockBookBindingTable extends Block {
-    public static final int GUI_ID = 2;
-    //    public static final PropertyBool BASE = PropertyBool.create("base");
-=======
 public class BlockBinding extends BlockHorizontal {
     public static final int GUI_ID = Constants.GUI_ENUM.BINDING.ordinal();
-//    public static final PropertyBool BASE = PropertyBool.create("base");
->>>>>>> master:src/main/java/se/resonantri/stargazerutil/common/blocks/BlockBinding.java
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
     public static final AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.375D, 1.0D);
 
@@ -55,12 +48,12 @@ public class BlockBinding extends BlockHorizontal {
     }
 
     @Deprecated
-    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
-    {
-        if (face==EnumFacing.DOWN)
-        {return BlockFaceShape.SOLID;}
-        else
-        {return BlockFaceShape.UNDEFINED;}
+    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
+        if (face == EnumFacing.DOWN) {
+            return BlockFaceShape.SOLID;
+        } else {
+            return BlockFaceShape.UNDEFINED;
+        }
     }
 
 //    @Override
