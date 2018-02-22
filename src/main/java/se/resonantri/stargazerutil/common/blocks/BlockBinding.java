@@ -1,9 +1,9 @@
 package se.resonantri.stargazerutil.common.blocks;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,22 +21,28 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import se.resonantri.stargazerutil.StargazerUtil;
-import se.resonantri.stargazerutil.common.tiles.TileBookBindingTable;
+import se.resonantri.stargazerutil.common.tiles.TileBinding;
 import se.resonantri.stargazerutil.utils.Constants;
 import se.resonantri.stargazerutil.utils.CreativeTab;
 
 import javax.annotation.Nonnull;
 
+<<<<<<< HEAD:src/main/java/se/resonantri/stargazerutil/common/blocks/BlockBookBindingTable.java
 public class BlockBookBindingTable extends Block {
     public static final int GUI_ID = 2;
     //    public static final PropertyBool BASE = PropertyBool.create("base");
+=======
+public class BlockBinding extends BlockHorizontal {
+    public static final int GUI_ID = Constants.GUI_ENUM.BINDING.ordinal();
+//    public static final PropertyBool BASE = PropertyBool.create("base");
+>>>>>>> master:src/main/java/se/resonantri/stargazerutil/common/blocks/BlockBinding.java
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
-    public static final AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 2.0D, 1.0D, 1.0D);
+    public static final AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.375D, 1.0D);
 
-    public BlockBookBindingTable() {
+    public BlockBinding() {
         super(Material.WOOD);
-        setUnlocalizedName(Constants.MODID + ".bookbindingtable");
-        setRegistryName("bookbindingtable");
+        setUnlocalizedName(Constants.MODID + ".binding");
+        setRegistryName("binding");
         setCreativeTab(CreativeTab.stargazerUtils);
         setHardness(7.5f);
         setSoundType(SoundType.WOOD);
@@ -46,6 +52,15 @@ public class BlockBookBindingTable extends Block {
     @SideOnly(Side.CLIENT)
     public void initModel() {
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+    }
+
+    @Deprecated
+    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
+    {
+        if (face==EnumFacing.DOWN)
+        {return BlockFaceShape.SOLID;}
+        else
+        {return BlockFaceShape.UNDEFINED;}
     }
 
 //    @Override
@@ -130,7 +145,7 @@ public class BlockBookBindingTable extends Block {
 
     @Nonnull
     public TileEntity createTileEntity(@Nonnull World world, @Nonnull IBlockState blockState) {
-        return new TileBookBindingTable();
+        return new TileBinding();
     }
 
     @Override
@@ -140,7 +155,7 @@ public class BlockBookBindingTable extends Block {
         }
 
         TileEntity te = world.getTileEntity(pos);
-        if (!(te instanceof TileBookBindingTable)) {
+        if (!(te instanceof TileBinding)) {
             return false;
         }
 

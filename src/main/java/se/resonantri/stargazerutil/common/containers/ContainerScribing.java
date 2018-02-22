@@ -1,4 +1,4 @@
-package se.resonantri.stargazerutil.common.container;
+package se.resonantri.stargazerutil.common.containers;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -7,12 +7,12 @@ import net.minecraft.inventory.Slot;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import se.resonantri.stargazerutil.common.tiles.TileScribeTable;
+import se.resonantri.stargazerutil.common.tiles.TileScribing;
 
-public class ScribeTableContainer extends Container {
-    private TileScribeTable te;
+public class ContainerScribing extends Container {
+    private TileScribing te;
 
-    public ScribeTableContainer(IInventory playerInventory, TileScribeTable te) {
+    public ContainerScribing(IInventory playerInventory, TileScribing te) {
         this.te = te;
         addOwnSlots();
         addPlayerSlots(playerInventory);
