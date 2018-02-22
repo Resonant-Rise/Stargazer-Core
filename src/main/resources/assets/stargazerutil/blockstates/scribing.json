@@ -4,11 +4,11 @@
     "model": "stargazerutil:block_scribing"
   },
   "variants": {
-    "normal": {
-      "model": "stargazerutil:block_scribing"
-    },
-    "inventory": {
-      "model": "stargazerutil:block_scribing"
-    }
+    "normal":       { "model": "stargazerutil:block_scribing"  },
+    "facing=north": { "model": "stargazerutil:block_scribing"  },
+    "facing=south": { "model": "stargazerutil:block_scribing", "y": 180 },
+    "facing=west":  { "model": "stargazerutil:block_scribing", "y": 270 },
+    "facing=east":  { "model": "stargazerutil:block_scribing", "y": 90  },
+    "inventory":    { "model": "stargazerutil:block_scribing"  }
   }
 }

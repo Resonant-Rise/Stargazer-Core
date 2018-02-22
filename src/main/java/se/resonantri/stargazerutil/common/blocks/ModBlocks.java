@@ -14,14 +14,10 @@ public class ModBlocks {
     @ObjectHolder("stargazerutil:table")
     public static BlockTable blockTable;
 
-    @ObjectHolder("stargazerutil:table_double")
-    public static BlockTableDouble blockTableDouble;
-
     @SideOnly(Side.CLIENT)
     public static void initModels() {
         blockScribing.initModel();
         blockBinding.initModel();
         blockTable.initModel();
-        blockTableDouble.initModel();
     }
 }

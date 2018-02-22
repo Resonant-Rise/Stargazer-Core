@@ -1,9 +1,9 @@
 package se.resonantri.stargazerutil.common.blocks;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,7 +25,7 @@ import se.resonantri.stargazerutil.utils.CreativeTab;
 
 import javax.annotation.Nonnull;
 
-public class BlockScribing extends Block {
+public class BlockScribing extends BlockHorizontal {
     public static final int GUI_ID = Constants.GUI_ENUM.SCRIBING.ordinal();
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
     public static final AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.375D, 1.0D);
@@ -42,6 +42,15 @@ public class BlockScribing extends Block {
     @SideOnly(Side.CLIENT)
     public void initModel() {
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+    }
+
+    @Deprecated
+    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
+    {
+        if (face==EnumFacing.DOWN)
+        {return BlockFaceShape.SOLID;}
+        else
+        {return BlockFaceShape.UNDEFINED;}
     }
 
     protected boolean isFull(IBlockState state) {
