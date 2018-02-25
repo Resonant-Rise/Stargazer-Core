@@ -45,9 +45,34 @@ public class BlockTable extends Block{
 
     @Override
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-
+    /*    if ((world.getBlockState(pos.offset(placer.getHorizontalFacing().rotateYCCW())).getBlock()==ModBlocks.blockTable) && (world.getBlockState(pos.offset(placer.getHorizontalFacing().rotateYCCW(),1)).getValue(FACING)==placer.getHorizontalFacing()))
+        {return super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand).withProperty(FACING, placer.getHorizontalFacing()).withProperty(TTYPE,ENUM_TTYPE.RIGHT);}
+        else
+        {return super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand).withProperty(FACING, placer.getHorizontalFacing()).withProperty(TTYPE,ENUM_TTYPE.SINGLE)}*/
         return super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand).withProperty(FACING, placer.getHorizontalFacing()).withProperty(TTYPE,ENUM_TTYPE.SINGLE);
+        /*world.setBlockState(pos.offset(placer.getHorizontalFacing().rotateYCCW()), ModBlocks.blockTable.getDefaultState().withProperty(FACING, placer.getHorizontalFacing()).withProperty(TTYPE,ENUM_TTYPE.LEFT));
+        return super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand).withProperty(FACING, placer.getHorizontalFacing()).withProperty(TTYPE,ENUM_TTYPE.RIGHT);*/
     }
+
+    public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
+    {
+        IBlockState candidate = worldIn.getBlockState(pos.offset(state.getValue(FACING).rotateYCCW()));
+        if ((candidate.getBlock()==ModBlocks.blockTable) && (candidate.getValue(FACING)==state.getValue(FACING)) && (candidate.getValue(TTYPE)==ENUM_TTYPE.SINGLE)){
+            worldIn.setBlockState(pos, state.withProperty(TTYPE, ENUM_TTYPE.RIGHT));
+            worldIn.setBlockState(pos.offset(state.getValue(FACING).rotateYCCW()), candidate.withProperty(TTYPE, ENUM_TTYPE.LEFT));
+        }
+    }
+
+    @Override
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
+    {
+        if (state.getValue(TTYPE)!=ENUM_TTYPE.SINGLE){
+            IBlockState candidate = state.getValue(TTYPE)==ENUM_TTYPE.RIGHT ? worldIn.getBlockState(pos.offset(state.getValue(FACING).rotateYCCW())) : worldIn.getBlockState(pos.offset(state.getValue(FACING).rotateY()));
+            if (candidate.getBlock()!=ModBlocks.blockTable) {
+                worldIn.setBlockState(pos, state.withProperty(TTYPE,ENUM_TTYPE.SINGLE));
+            }
+        }
+    }    
 
     @Deprecated
     public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
@@ -67,13 +92,13 @@ public class BlockTable extends Block{
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return (state.getValue(FACING)).getHorizontalIndex()+((state.getValue(TTYPE)).getIndex()<<2);
+        return (state.getValue(FACING)).getHorizontalIndex()+((state.getValue(TTYPE)).ordinal()<<2);
     }
 
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return getDefaultState().withProperty(FACING,EnumFacing.getHorizontal(meta&0b11)).withProperty(TTYPE, ENUM_TTYPE.indexOf(meta >> 2));
+        return getDefaultState().withProperty(FACING,EnumFacing.getHorizontal(meta&0b11)).withProperty(TTYPE, ENUM_TTYPE.values()[meta >> 2]);
     }
 
     protected boolean isFull(IBlockState state) {

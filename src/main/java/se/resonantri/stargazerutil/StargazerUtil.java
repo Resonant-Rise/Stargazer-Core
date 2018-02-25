@@ -43,4 +43,5 @@ public class StargazerUtil {
     public void serverStart(FMLServerStartingEvent event) {
         proxy.serverStart(event);
     }
+
 }
