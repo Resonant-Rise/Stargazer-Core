@@ -20,7 +20,7 @@ public final class Constants {
     public static final String MCVERS = "[1.12,1.12.2]";
 
     // System Constants
-    public static final Random RANDOM = new Random();  
+    public static final Random RANDOM = new Random();
 
     //GUI's
     public enum GUI_ENUM

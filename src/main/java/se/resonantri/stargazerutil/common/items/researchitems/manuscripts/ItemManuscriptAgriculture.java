@@ -19,7 +19,7 @@ import se.resonantri.stargazerutil.utils.CreativeTab;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemManuscriptAgriculture extends Item{
+public class ItemManuscriptAgriculture extends Item {
     public ItemManuscriptAgriculture() {
         setMaxStackSize(1);
         setCreativeTab(CreativeTab.stargazerUtils);

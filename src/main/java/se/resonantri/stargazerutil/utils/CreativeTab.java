@@ -16,7 +16,7 @@ public class CreativeTab extends CreativeTabs {
     @Override
     public ItemStack getTabIconItem() {
         ItemStack icon = new ItemStack(ModItems.itemInkwell);
-        if (!icon.hasTagCompound()){
+        if (!icon.hasTagCompound()) {
             icon.setTagCompound(new NBTTagCompound());
         }
         icon.getTagCompound().setInteger("ink", 16);

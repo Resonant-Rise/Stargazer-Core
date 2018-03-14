@@ -32,7 +32,7 @@ public class StargazerConfig {
 
             @Comment("Enable Skillable Tasks/Rewards")
             public static boolean SkillableTasksRewards = true;
-            
+
             @Comment("Enable Tinker's Construct Tasks/Rewards")
             public static boolean TiCoTasksRewards = true;
         }

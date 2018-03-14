@@ -1,9 +1,9 @@
 package se.resonantri.stargazerutil.compat.skillable.traits.customtraits.alchemy;
 
+import codersafterdark.reskillable.skill.base.Trait;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
-import vazkii.skillable.skill.base.Trait;
 
 import static se.resonantri.stargazerutil.utils.StargazerConfig.StargazerConfigs.Skillable.AcceleratedCost;
 

@@ -30,6 +30,7 @@ import static se.resonantri.stargazerutil.utils.StargazerConfig.StargazerConfigs
 public abstract class CompatModule {
     public static HashMap<String, Class<? extends CompatModule>> moduleClasses = new HashMap<String, Class<? extends CompatModule>>();
     public static Set<CompatModule> modules = new HashSet<CompatModule>();
+    public static boolean serverStartingDone = false;
 
     static {
         moduleClasses.put("astralsorcery", AstralSorceryMaterials.class);
@@ -57,6 +58,7 @@ public abstract class CompatModule {
                 }
             }
     }
+
     public static void doModulesInit() {
         for (CompatModule compat : CompatModule.modules) {
             try {
@@ -66,6 +68,7 @@ public abstract class CompatModule {
             }
         }
     }
+
     public static void doModulesPostInit() {
         for (CompatModule compat : CompatModule.modules) {
             try {
@@ -75,7 +78,7 @@ public abstract class CompatModule {
             }
         }
     }
-    public static boolean serverStartingDone = false;
+
     public static void doModulesLoadComplete() {
         if (!serverStartingDone) {
             serverStartingDone = true;
@@ -91,13 +94,23 @@ public abstract class CompatModule {
     }
 
     public abstract void preInit();
+
     public abstract void init();
+
     public abstract void postInit();
-    public void loadComplete() {}
+
+    public void loadComplete() {
+    }
+
     @SideOnly(Side.CLIENT)
-    public void clientPreInit() {}
+    public void clientPreInit() {
+    }
+
     @SideOnly(Side.CLIENT)
-    public void clientInit() {}
+    public void clientInit() {
+    }
+
     @SideOnly(Side.CLIENT)
-    public void clientPostInit() {}
+    public void clientPostInit() {
+    }
 }

@@ -17,9 +17,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import se.resonantri.stargazerutil.utils.Constants;
 import se.resonantri.stargazerutil.utils.CreativeTab;
 
-import javax.annotation.Nonnull;
-
-public class ItemInkwell extends Item{
+public class ItemInkwell extends Item {
 
     public ItemInkwell() {
         setMaxStackSize(1);
@@ -38,20 +36,20 @@ public class ItemInkwell extends Item{
         ModelResourceLocation T5 = new ModelResourceLocation(getRegistryName() + "_Tier5", "inventory");
         ModelResourceLocation T6 = new ModelResourceLocation(getRegistryName() + "_Tier6", "inventory");
         ModelBakery.registerItemVariants(this, T0, T1, T2, T3, T4, T5, T6);
-        ModelLoader.setCustomMeshDefinition(this, new ItemMeshDefinition(){
+        ModelLoader.setCustomMeshDefinition(this, new ItemMeshDefinition() {
             @Override
             public ModelResourceLocation getModelLocation(ItemStack stack) {
-                if (Empty(stack)){
+                if (Empty(stack)) {
                     return T0;
-                } else if (Tier1(stack)){
+                } else if (Tier1(stack)) {
                     return T1;
-                } else if (Tier2(stack)){
+                } else if (Tier2(stack)) {
                     return T2;
-                } else if (Tier3(stack)){
+                } else if (Tier3(stack)) {
                     return T3;
-                } else if (Tier4(stack)){
+                } else if (Tier4(stack)) {
                     return T4;
-                } else if (Tier5(stack)){
+                } else if (Tier5(stack)) {
                     return T5;
                 } else {
                     return T6;
@@ -69,85 +67,85 @@ public class ItemInkwell extends Item{
         return tagCompound;
     }
 
-    public boolean Empty(ItemStack stack){
+    public boolean Empty(ItemStack stack) {
         int InkInt = getTagCompoundSafe(stack).getInteger("ink");
-        if (InkInt == 0){
+        if (InkInt == 0) {
             return true;
         }
         return false;
     }
 
-    public boolean Tier1(ItemStack stack){
+    public boolean Tier1(ItemStack stack) {
         int InkInt = getTagCompoundSafe(stack).getInteger("ink");
-        if (InkInt == 1){
+        if (InkInt == 1) {
             return true;
         }
-        if (InkInt == 2){
+        if (InkInt == 2) {
             return true;
         }
-        if (InkInt == 3){
+        if (InkInt == 3) {
             return true;
         }
         return false;
     }
 
-    public boolean Tier2(ItemStack stack){
+    public boolean Tier2(ItemStack stack) {
         int InkInt = getTagCompoundSafe(stack).getInteger("ink");
-        if (InkInt == 4){
+        if (InkInt == 4) {
             return true;
         }
-        if (InkInt == 5){
+        if (InkInt == 5) {
             return true;
         }
-        if (InkInt == 6){
+        if (InkInt == 6) {
             return true;
         }
         return false;
     }
 
-    public boolean Tier3(ItemStack stack){
+    public boolean Tier3(ItemStack stack) {
         int InkInt = getTagCompoundSafe(stack).getInteger("ink");
-        if (InkInt == 7){
+        if (InkInt == 7) {
             return true;
         }
-        if (InkInt == 8){
+        if (InkInt == 8) {
             return true;
         }
-        if (InkInt == 9){
+        if (InkInt == 9) {
             return true;
         }
         return false;
     }
 
-    public boolean Tier4(ItemStack stack){
+    public boolean Tier4(ItemStack stack) {
         int InkInt = getTagCompoundSafe(stack).getInteger("ink");
-        if (InkInt == 10){
+        if (InkInt == 10) {
             return true;
         }
-        if (InkInt == 11){
+        if (InkInt == 11) {
             return true;
         }
-        if (InkInt == 12){
+        if (InkInt == 12) {
             return true;
         }
         return false;
     }
 
-    public boolean Tier5(ItemStack stack){
+    public boolean Tier5(ItemStack stack) {
         int InkInt = getTagCompoundSafe(stack).getInteger("ink");
-        if (InkInt == 13){
+        if (InkInt == 13) {
             return true;
         }
-        if (InkInt == 14){
+        if (InkInt == 14) {
             return true;
         }
-        if (InkInt == 15){
+        if (InkInt == 15) {
             return true;
         }
         return false;
     }
 
-        @Override
+    @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (this.isInCreativeTab(tab)) {
             for (int i = 0; i < 7; i++) {

@@ -29,7 +29,7 @@ import javax.annotation.Nonnull;
 
 public class BlockBinding extends BlockHorizontal {
     public static final int GUI_ID = Constants.GUI_ENUM.BINDING.ordinal();
-//    public static final PropertyBool BASE = PropertyBool.create("base");
+    //    public static final PropertyBool BASE = PropertyBool.create("base");
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
     public static final AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.375D, 1.0D);
 

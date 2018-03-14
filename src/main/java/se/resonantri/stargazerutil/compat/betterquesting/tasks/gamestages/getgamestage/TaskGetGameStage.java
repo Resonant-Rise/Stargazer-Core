@@ -30,9 +30,9 @@ import java.util.UUID;
 import static net.darkhax.gamestages.capabilities.PlayerDataHandler.getStageData;
 
 public class TaskGetGameStage implements ITask, IProgression<Boolean>, ITickableTask {
-    private ArrayList<UUID> completeUsers = new ArrayList<>();
     public final HashMap<UUID, Boolean> userProgress = new HashMap<UUID, Boolean>();
     public String targetGameStage = "test";
+    private ArrayList<UUID> completeUsers = new ArrayList<>();
 
     public void getGameStage(@Nonnull EntityPlayer player) {
         if (!isComplete(player.getUniqueID())) {
@@ -49,9 +49,9 @@ public class TaskGetGameStage implements ITask, IProgression<Boolean>, ITickable
 
     @Override
     public Boolean getUsersProgress(UUID... uuids) {
-        for (UUID uuid : uuids){
+        for (UUID uuid : uuids) {
             Boolean n = userProgress.get(uuid);
-            if (n){
+            if (n) {
                 return true;
             }
         }
@@ -60,8 +60,8 @@ public class TaskGetGameStage implements ITask, IProgression<Boolean>, ITickable
 
     @Override
     public Boolean getGlobalProgress() {
-        for (Boolean value : userProgress.values()){
-            if (value){
+        for (Boolean value : userProgress.values()) {
+            if (value) {
                 return true;
             }
         }
@@ -86,11 +86,11 @@ public class TaskGetGameStage implements ITask, IProgression<Boolean>, ITickable
     @Override
     public void detect(EntityPlayer player, IQuest iQuest) {
         UUID playerID = QuestingAPI.getQuestingUUID(player);
-        if (isComplete(playerID)){
+        if (isComplete(playerID)) {
             return;
         }
         String targetStage = targetGameStage;
-        if (getStageData(player).hasUnlockedStage(targetStage)){
+        if (getStageData(player).hasUnlockedStage(targetStage)) {
             setComplete(playerID);
         }
     }
@@ -102,7 +102,7 @@ public class TaskGetGameStage implements ITask, IProgression<Boolean>, ITickable
 
     @Override
     public void setComplete(UUID uuid) {
-        if (!completeUsers.contains(uuid)){
+        if (!completeUsers.contains(uuid)) {
             completeUsers.add(uuid);
         }
     }
@@ -137,9 +137,9 @@ public class TaskGetGameStage implements ITask, IProgression<Boolean>, ITickable
 
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound compound, EnumSaveType enumSaveType) {
-        if (enumSaveType == EnumSaveType.PROGRESS){
+        if (enumSaveType == EnumSaveType.PROGRESS) {
             this.writeProgressToJson(compound);
-        } else if (enumSaveType != EnumSaveType.CONFIG){
+        } else if (enumSaveType != EnumSaveType.CONFIG) {
             return compound;
         }
         compound.setString("gamestage", targetGameStage);
@@ -148,41 +148,41 @@ public class TaskGetGameStage implements ITask, IProgression<Boolean>, ITickable
 
     @Override
     public void readFromNBT(NBTTagCompound compound, EnumSaveType enumSaveType) {
-        if (enumSaveType == EnumSaveType.PROGRESS){
+        if (enumSaveType == EnumSaveType.PROGRESS) {
             this.readProgressFromJson(compound);
-        } else if (enumSaveType != EnumSaveType.CONFIG){
+        } else if (enumSaveType != EnumSaveType.CONFIG) {
             return;
         }
         targetGameStage = compound.getString("gamestage");
     }
 
-    public void readProgressFromJson(NBTTagCompound json){
+    public void readProgressFromJson(NBTTagCompound json) {
         completeUsers = new ArrayList<UUID>();
         NBTTagList cList = json.getTagList("completedUsers", 8);
-        for (int i = 0; i < cList.tagCount(); i++){
+        for (int i = 0; i < cList.tagCount(); i++) {
             NBTBase entry = cList.get(i);
-            if (entry == null || entry.getId() != 8){
+            if (entry == null || entry.getId() != 8) {
                 continue;
             }
 
             try {
-                completeUsers.add(UUID.fromString(((NBTTagString)entry).getString()));
-            } catch (Exception e){
+                completeUsers.add(UUID.fromString(((NBTTagString) entry).getString()));
+            } catch (Exception e) {
                 StargazerUtil.logger.log(Level.ERROR, "Unable to load UUID for Task", e);
             }
         }
         userProgress.clear();
         NBTTagList pList = json.getTagList("userProgresss", 10);
-        for (int i = 0; i < pList.tagCount(); i++){
+        for (int i = 0; i < pList.tagCount(); i++) {
             NBTBase entry = pList.get(i);
-            if (entry == null || entry.getId() != 10){
+            if (entry == null || entry.getId() != 10) {
                 continue;
             }
-            NBTTagCompound pTag = (NBTTagCompound)entry;
+            NBTTagCompound pTag = (NBTTagCompound) entry;
             UUID uuid;
             try {
                 uuid = UUID.fromString(pTag.getString("uuid"));
-            } catch (Exception e){
+            } catch (Exception e) {
                 StargazerUtil.logger.log(Level.ERROR, "Unable to load user progress from Task", e);
                 continue;
             }
@@ -190,18 +190,15 @@ public class TaskGetGameStage implements ITask, IProgression<Boolean>, ITickable
         }
     }
 
-    public NBTTagCompound writeProgressToJson(NBTTagCompound json)
-    {
+    public NBTTagCompound writeProgressToJson(NBTTagCompound json) {
         NBTTagList jArray = new NBTTagList();
-        for(UUID uuid : completeUsers)
-        {
+        for (UUID uuid : completeUsers) {
             jArray.appendTag(new NBTTagString(uuid.toString()));
         }
         json.setTag("completeUsers", jArray);
 
         NBTTagList progArray = new NBTTagList();
-        for(Map.Entry<UUID,Boolean> entry : userProgress.entrySet())
-        {
+        for (Map.Entry<UUID, Boolean> entry : userProgress.entrySet()) {
             NBTTagCompound pJson = new NBTTagCompound();
             pJson.setString("uuid", entry.getKey().toString());
             pJson.setBoolean("value", entry.getValue());
@@ -215,11 +212,11 @@ public class TaskGetGameStage implements ITask, IProgression<Boolean>, ITickable
     @Override
     public void updateTask(EntityPlayer entityPlayer, IQuest iQuest) {
         UUID playerId = QuestingAPI.getQuestingUUID(entityPlayer);
-        if (entityPlayer.ticksExisted%60 == 0 && !QuestingAPI.getAPI(ApiReference.SETTINGS).getProperty(NativeProps.EDIT_MODE)){
-            if (!getStageData(entityPlayer).hasUnlockedStage(targetGameStage)){
+        if (entityPlayer.ticksExisted % 60 == 0 && !QuestingAPI.getAPI(ApiReference.SETTINGS).getProperty(NativeProps.EDIT_MODE)) {
+            if (!getStageData(entityPlayer).hasUnlockedStage(targetGameStage)) {
                 setUserProgress(playerId, getStageData(entityPlayer).hasUnlockedStage(targetGameStage));
             }
-            if (getStageData(entityPlayer).hasUnlockedStage(targetGameStage)){
+            if (getStageData(entityPlayer).hasUnlockedStage(targetGameStage)) {
                 setComplete(playerId);
             }
         }

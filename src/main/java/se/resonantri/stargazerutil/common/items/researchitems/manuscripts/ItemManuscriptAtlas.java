@@ -1,14 +1,17 @@
 package se.resonantri.stargazerutil.common.items.researchitems.manuscripts;
 
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
+import net.darkhax.gamestages.capabilities.PlayerDataHandler;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.*;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
@@ -19,7 +22,10 @@ import se.resonantri.stargazerutil.utils.CreativeTab;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemManuscriptAtlas extends Item{
+public class ItemManuscriptAtlas extends Item {
+
+    public static BiMap<String, String> biMapster = HashBiMap.create();
+
     public ItemManuscriptAtlas() {
         setMaxStackSize(1);
         setCreativeTab(CreativeTab.stargazerUtils);
@@ -31,15 +37,42 @@ public class ItemManuscriptAtlas extends Item{
         ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
     }
 
+    public static void setBiMapsterValues(){
+        biMapster.put("Aether Atlas", "Aether");
+        biMapster.put("Betweenlands Atlas", "Betweenlands");
+        biMapster.put("End Atlas", "End");
+        biMapster.put("Hunting Dimension Atlas", "Hunting_Dim");
+        biMapster.put("Nether Atlas", "Nether");
+        biMapster.put("Twilight Forest Atlas", "TwilightForest");
+    }
+
     @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (this.isInCreativeTab(tab)) {
-            ItemStack stack = new ItemStack(this);
-            NBTTagCompound nbt = new NBTTagCompound();
-            nbt.setString("Manuscript", "Atlas");
-            stack.setTagCompound(nbt);
-            items.add(stack);
+            int value = biMapster.size();
+            for (int i = 0; i < value; i++){
+                ItemStack stack = new ItemStack(this);
+                NBTTagCompound nbt = new NBTTagCompound();
+                nbt.setString("Manuscript", biMapster.entrySet().iterator().toString());
+                stack.setTagCompound(nbt);
+                items.add(stack);
+            }
         }
+    }
+
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+        ItemStack stack = playerIn.getHeldItem(handIn);
+        NBTTagCompound nbt = stack.getTagCompound();
+        if (stack.hasTagCompound()){
+            if (nbt.hasKey("Manuscript")){
+                if (biMapster.get(nbt.getString("Manuscript")) != null){
+                    PlayerDataHandler.getStageData(playerIn).unlockStage(biMapster.get(nbt.getString("Manuscript")));
+                    return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
+                }
+            }
+        }
+        return ActionResult.newResult(EnumActionResult.PASS, stack);
     }
 
     @Override

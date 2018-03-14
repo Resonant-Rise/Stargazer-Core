@@ -1,5 +1,7 @@
 package se.resonantri.stargazerutil.compat.skillable.traits.basetraits.mining;
 
+import codersafterdark.reskillable.base.ConditionHelper;
+import codersafterdark.reskillable.skill.base.Trait;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -10,8 +12,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
-import vazkii.skillable.base.ConditionHelper;
-import vazkii.skillable.skill.base.Trait;
 
 import java.util.HashMap;
 import java.util.Map;

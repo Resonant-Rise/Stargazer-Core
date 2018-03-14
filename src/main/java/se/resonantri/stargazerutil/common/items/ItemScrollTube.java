@@ -7,7 +7,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import se.resonantri.stargazerutil.utils.Constants;
 import se.resonantri.stargazerutil.utils.CreativeTab;
 
-public class ItemScrollTube extends Item{
+public class ItemScrollTube extends Item {
     public ItemScrollTube() {
         setMaxStackSize(1);
         setCreativeTab(CreativeTab.stargazerUtils);
@@ -18,7 +18,6 @@ public class ItemScrollTube extends Item{
     public void initModel() {
         ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
     }
-
 
 
 }

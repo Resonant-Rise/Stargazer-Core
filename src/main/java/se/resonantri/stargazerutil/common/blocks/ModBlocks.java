@@ -1,3 +1,4 @@
+
 package se.resonantri.stargazerutil.common.blocks;
 
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;

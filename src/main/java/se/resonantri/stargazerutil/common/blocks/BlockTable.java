@@ -72,15 +72,15 @@ public class BlockTable extends Block{
                 worldIn.setBlockState(pos, state.withProperty(TTYPE,ENUM_TTYPE.SINGLE));
             }
         }
-    }    
+    }
 
     @Deprecated
     public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
     {
         if (face==EnumFacing.UP)
-            {return BlockFaceShape.SOLID;}
+        {return BlockFaceShape.SOLID;}
         else
-            {return BlockFaceShape.UNDEFINED;}
+        {return BlockFaceShape.UNDEFINED;}
     }
 
     @Override
