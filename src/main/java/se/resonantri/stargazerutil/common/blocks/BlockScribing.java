@@ -45,12 +45,12 @@ public class BlockScribing extends BlockHorizontal {
     }
 
     @Deprecated
-    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
-        if (face == EnumFacing.DOWN) {
-            return BlockFaceShape.SOLID;
-        } else {
-            return BlockFaceShape.UNDEFINED;
-        }
+    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
+    {
+        if (face==EnumFacing.DOWN)
+        {return BlockFaceShape.SOLID;}
+        else
+        {return BlockFaceShape.UNDEFINED;}
     }
 
     protected boolean isFull(IBlockState state) {

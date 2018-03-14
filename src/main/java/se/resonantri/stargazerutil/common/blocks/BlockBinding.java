@@ -29,6 +29,7 @@ import javax.annotation.Nonnull;
 
 public class BlockBinding extends BlockHorizontal {
     public static final int GUI_ID = Constants.GUI_ENUM.BINDING.ordinal();
+    //    public static final PropertyBool BASE = PropertyBool.create("base");
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
     public static final AxisAlignedBB BLOCK_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.375D, 1.0D);
 
@@ -48,12 +49,12 @@ public class BlockBinding extends BlockHorizontal {
     }
 
     @Deprecated
-    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
-        if (face == EnumFacing.DOWN) {
-            return BlockFaceShape.SOLID;
-        } else {
-            return BlockFaceShape.UNDEFINED;
-        }
+    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
+    {
+        if (face==EnumFacing.DOWN)
+        {return BlockFaceShape.SOLID;}
+        else
+        {return BlockFaceShape.UNDEFINED;}
     }
 
 //    @Override
@@ -127,13 +128,13 @@ public class BlockBinding extends BlockHorizontal {
     @Override
     @SuppressWarnings("deprecation")
     public IBlockState withRotation(IBlockState state, Rotation rot) {
-        return state.withProperty(FACING, rot.rotate((EnumFacing) state.getValue(FACING)));
+        return state.withProperty(FACING, rot.rotate((EnumFacing)state.getValue(FACING)));
     }
 
     @Override
     @SuppressWarnings("deprecation")
     public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {
-        return state.withRotation(mirrorIn.toRotation((EnumFacing) state.getValue(FACING)));
+        return state.withRotation(mirrorIn.toRotation((EnumFacing)state.getValue(FACING)));
     }
 
     @Nonnull

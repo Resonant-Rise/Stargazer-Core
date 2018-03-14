@@ -23,7 +23,8 @@ public final class Constants {
     public static final Random RANDOM = new Random();
 
     //GUI's
-    public enum GUI_ENUM {
+    public enum GUI_ENUM
+    {
         SCRIBING, BINDING
     }
 
