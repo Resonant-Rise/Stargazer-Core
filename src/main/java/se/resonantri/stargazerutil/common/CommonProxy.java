@@ -22,7 +22,6 @@ import se.resonantri.stargazerutil.api.cap.KnowledgeStorage;
 import se.resonantri.stargazerutil.client.GuiProxy;
 import se.resonantri.stargazerutil.common.blocks.BlockBinding;
 import se.resonantri.stargazerutil.common.blocks.BlockScribing;
-import se.resonantri.stargazerutil.common.blocks.BlockTable;
 import se.resonantri.stargazerutil.common.blocks.ModBlocks;
 import se.resonantri.stargazerutil.common.items.ItemParchment;
 import se.resonantri.stargazerutil.common.items.ItemQuill;
@@ -56,8 +55,8 @@ public class CommonProxy {
         event.getRegistry().register(blockBinding);
         GameRegistry.registerTileEntity(TileBinding.class, blockBinding.getRegistryName().toString());
 
-        Block blockTable = new BlockTable();
-        event.getRegistry().register(blockTable);
+        //Block blockTable = new BlockTable();
+        //event.getRegistry().register(blockTable);
 
         //Block blockTableDouble = new BlockTableDouble();
         //event.getRegistry().register(blockTableDouble);
@@ -76,7 +75,7 @@ public class CommonProxy {
         event.getRegistry().register(new ItemManuscriptHusbandry());
         event.getRegistry().register(new ItemBlock(ModBlocks.blockScribing).setRegistryName(ModBlocks.blockScribing.getRegistryName()));
         event.getRegistry().register(new ItemBlock(ModBlocks.blockBinding).setRegistryName(ModBlocks.blockBinding.getRegistryName()));
-        event.getRegistry().register(new ItemBlock(ModBlocks.blockTable).setRegistryName(ModBlocks.blockTable.getRegistryName()));
+        //event.getRegistry().register(new ItemBlock(ModBlocks.blockTable).setRegistryName(ModBlocks.blockTable.getRegistryName()));
         //event.getRegistry().register(new ItemBlock(ModBlocks.blockTableDouble).setRegistryName(ModBlocks.blockTableDouble.getRegistryName()));
     }
 
