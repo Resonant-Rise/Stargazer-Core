@@ -22,6 +22,10 @@ import se.resonantri.stargazerutil.api.cap.KnowledgeStorage;
 import se.resonantri.stargazerutil.client.GuiProxy;
 import se.resonantri.stargazerutil.common.blocks.BlockBinding;
 import se.resonantri.stargazerutil.common.blocks.BlockScribing;
+<<<<<<< HEAD
+=======
+import se.resonantri.stargazerutil.common.blocks.BlockTable;
+>>>>>>> master
 import se.resonantri.stargazerutil.common.blocks.ModBlocks;
 import se.resonantri.stargazerutil.common.items.ItemParchment;
 import se.resonantri.stargazerutil.common.items.ItemQuill;
@@ -55,11 +59,16 @@ public class CommonProxy {
         event.getRegistry().register(blockBinding);
         GameRegistry.registerTileEntity(TileBinding.class, blockBinding.getRegistryName().toString());
 
+<<<<<<< HEAD
         //Block blockTable = new BlockTable();
         //event.getRegistry().register(blockTable);
 
         //Block blockTableDouble = new BlockTableDouble();
         //event.getRegistry().register(blockTableDouble);
+=======
+        Block blockTable = new BlockTable();
+        event.getRegistry().register(blockTable);
+>>>>>>> master
     }
 
     @SubscribeEvent
@@ -75,9 +84,14 @@ public class CommonProxy {
         event.getRegistry().register(new ItemManuscriptHusbandry());
         event.getRegistry().register(new ItemBlock(ModBlocks.blockScribing).setRegistryName(ModBlocks.blockScribing.getRegistryName()));
         event.getRegistry().register(new ItemBlock(ModBlocks.blockBinding).setRegistryName(ModBlocks.blockBinding.getRegistryName()));
+<<<<<<< HEAD
         //event.getRegistry().register(new ItemBlock(ModBlocks.blockTable).setRegistryName(ModBlocks.blockTable.getRegistryName()));
         //event.getRegistry().register(new ItemBlock(ModBlocks.blockTableDouble).setRegistryName(ModBlocks.blockTableDouble.getRegistryName()));
     }
+=======
+        event.getRegistry().register(new ItemBlock(ModBlocks.blockTable).setRegistryName(ModBlocks.blockTable.getRegistryName()));
+}
+>>>>>>> master
 
     public void registerExpansion() {
         ITaskRegistry taskRegistry = QuestingAPI.getAPI(ApiReference.TASK_REG);
