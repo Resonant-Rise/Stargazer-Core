@@ -5,18 +5,18 @@
   },
   "variants": {
     "normal":       { "model": "stargazerutil:block_table" },
-    "inventory":                { "model": "stargazerutil:block_table" },
-    "facing=north,ttype=single":{ "model": "stargazerutil:block_table" },
-    "facing=south,ttype=single":{ "model": "stargazerutil:block_table", "y": 180 },
-    "facing=west,ttype=single": { "model": "stargazerutil:block_table", "y": 270 },
-    "facing=east,ttype=single": { "model": "stargazerutil:block_table", "y": 90  },
-    "facing=north,ttype=left":  { "model": "stargazerutil:block_td_left" },
-    "facing=south,ttype=left":  { "model": "stargazerutil:block_td_left", "y": 180 },
-    "facing=west,ttype=left":   { "model": "stargazerutil:block_td_left", "y": 270 },
-    "facing=east,ttype=left":   { "model": "stargazerutil:block_td_left", "y": 90  },
-    "facing=north,ttype=right": { "model": "stargazerutil:block_td_right" },
-    "facing=south,ttype=right": { "model": "stargazerutil:block_td_right", "y": 180 },
-    "facing=west,ttype=right":  { "model": "stargazerutil:block_td_right", "y": 270 },
-    "facing=east,ttype=right":  { "model": "stargazerutil:block_td_right", "y": 90  }
+    "facing=north,ttable=single": { "model": "stargazerutil:block_table" },
+    "facing=south,ttable=single": { "model": "stargazerutil:block_table", "y": 180 },
+    "facing=west,ttable=single":  { "model": "stargazerutil:block_table", "y": 270 },
+    "facing=east,ttable=single":  { "model": "stargazerutil:block_table", "y": 90  },
+    "facing=north,ttable=left": { "model": "stargazerutil:block_table" },
+    "facing=south,ttable=left": { "model": "stargazerutil:block_table", "y": 180 },
+    "facing=west,ttable=left":  { "model": "stargazerutil:block_table", "y": 270 },
+    "facing=east,ttable=left":  { "model": "stargazerutil:block_table", "y": 90  },
+    "facing=north,ttable=right": { "model": "stargazerutil:block_table" },
+    "facing=south,ttable=right": { "model": "stargazerutil:block_table", "y": 180 },
+    "facing=west,ttable=right":  { "model": "stargazerutil:block_table", "y": 270 },
+    "facing=east,ttable=right":  { "model": "stargazerutil:block_table", "y": 90  },
+    "inventory":    { "model": "stargazerutil:block_table" }
   }
 }
