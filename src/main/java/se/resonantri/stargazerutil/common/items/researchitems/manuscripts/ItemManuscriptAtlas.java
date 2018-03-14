@@ -17,10 +17,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import org.lwjgl.input.Keyboard;
 import se.resonantri.stargazerutil.utils.Constants;
-import se.resonantri.stargazerutil.utils.CreativeTab;
+import se.resonantri.stargazerutil.utils.creativetab.CreativeTab;
 
 import javax.annotation.Nullable;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class ItemManuscriptAtlas extends Item {
 
@@ -37,7 +39,7 @@ public class ItemManuscriptAtlas extends Item {
         ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
     }
 
-    public static void setBiMapsterValues(){
+    static {
         biMapster.put("Aether Atlas", "Aether");
         biMapster.put("Betweenlands Atlas", "Betweenlands");
         biMapster.put("End Atlas", "End");
@@ -49,11 +51,12 @@ public class ItemManuscriptAtlas extends Item {
     @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (this.isInCreativeTab(tab)) {
-            int value = biMapster.size();
-            for (int i = 0; i < value; i++){
+            Iterator iterator = biMapster.entrySet().iterator();
+            while (iterator.hasNext()){
+                Map.Entry value = (Map.Entry) iterator.next();
                 ItemStack stack = new ItemStack(this);
                 NBTTagCompound nbt = new NBTTagCompound();
-                nbt.setString("Manuscript", biMapster.entrySet().iterator().toString());
+                nbt.setString("Manuscript", value.getKey().toString());
                 stack.setTagCompound(nbt);
                 items.add(stack);
             }

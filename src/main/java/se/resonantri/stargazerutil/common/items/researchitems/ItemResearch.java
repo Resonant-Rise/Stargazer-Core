@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import org.lwjgl.input.Keyboard;
 import se.resonantri.stargazerutil.utils.Constants;
-import se.resonantri.stargazerutil.utils.CreativeTab;
+import se.resonantri.stargazerutil.utils.creativetab.CreativeTab;
 
 import javax.annotation.Nullable;
 import java.util.List;

@@ -23,7 +23,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import se.resonantri.stargazerutil.StargazerUtil;
 import se.resonantri.stargazerutil.common.tiles.TileBinding;
 import se.resonantri.stargazerutil.utils.Constants;
-import se.resonantri.stargazerutil.utils.CreativeTab;
+import se.resonantri.stargazerutil.utils.creativetab.CreativeTab;
 
 import javax.annotation.Nonnull;
 

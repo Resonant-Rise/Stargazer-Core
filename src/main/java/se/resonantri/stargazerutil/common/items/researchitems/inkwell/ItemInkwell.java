@@ -15,7 +15,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import se.resonantri.stargazerutil.utils.Constants;
-import se.resonantri.stargazerutil.utils.CreativeTab;
+import se.resonantri.stargazerutil.utils.creativetab.CreativeTab;
 
 public class ItemInkwell extends Item {
 

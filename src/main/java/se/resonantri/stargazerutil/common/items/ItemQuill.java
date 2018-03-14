@@ -5,7 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import se.resonantri.stargazerutil.utils.Constants;
-import se.resonantri.stargazerutil.utils.CreativeTab;
+import se.resonantri.stargazerutil.utils.creativetab.CreativeTab;
 
 public class ItemQuill extends Item {
     public ItemQuill() {
