@@ -6,6 +6,7 @@ import betterquesting.api.questing.tasks.ITaskRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -15,10 +16,16 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import se.resonantri.stargazerutil.api.cap.DefaultKnowledgeHandler;
+import se.resonantri.stargazerutil.api.cap.IKnowledgeHandler;
+import se.resonantri.stargazerutil.api.cap.KnowledgeStorage;
 import se.resonantri.stargazerutil.client.GuiProxy;
 import se.resonantri.stargazerutil.common.blocks.BlockBinding;
 import se.resonantri.stargazerutil.common.blocks.BlockScribing;
+<<<<<<< HEAD
+=======
 import se.resonantri.stargazerutil.common.blocks.BlockTable;
+>>>>>>> master
 import se.resonantri.stargazerutil.common.blocks.ModBlocks;
 import se.resonantri.stargazerutil.common.items.ItemParchment;
 import se.resonantri.stargazerutil.common.items.ItemQuill;
@@ -52,8 +59,16 @@ public class CommonProxy {
         event.getRegistry().register(blockBinding);
         GameRegistry.registerTileEntity(TileBinding.class, blockBinding.getRegistryName().toString());
 
+<<<<<<< HEAD
+        //Block blockTable = new BlockTable();
+        //event.getRegistry().register(blockTable);
+
+        //Block blockTableDouble = new BlockTableDouble();
+        //event.getRegistry().register(blockTableDouble);
+=======
         Block blockTable = new BlockTable();
         event.getRegistry().register(blockTable);
+>>>>>>> master
     }
 
     @SubscribeEvent
@@ -69,10 +84,16 @@ public class CommonProxy {
         event.getRegistry().register(new ItemManuscriptHusbandry());
         event.getRegistry().register(new ItemBlock(ModBlocks.blockScribing).setRegistryName(ModBlocks.blockScribing.getRegistryName()));
         event.getRegistry().register(new ItemBlock(ModBlocks.blockBinding).setRegistryName(ModBlocks.blockBinding.getRegistryName()));
+<<<<<<< HEAD
+        //event.getRegistry().register(new ItemBlock(ModBlocks.blockTable).setRegistryName(ModBlocks.blockTable.getRegistryName()));
+        //event.getRegistry().register(new ItemBlock(ModBlocks.blockTableDouble).setRegistryName(ModBlocks.blockTableDouble.getRegistryName()));
+    }
+=======
         event.getRegistry().register(new ItemBlock(ModBlocks.blockTable).setRegistryName(ModBlocks.blockTable.getRegistryName()));
 }
+>>>>>>> master
 
-    public void registerExpansion(){
+    public void registerExpansion() {
         ITaskRegistry taskRegistry = QuestingAPI.getAPI(ApiReference.TASK_REG);
         taskRegistry.registerTask(TaskGetGameStageFactory.INSTANCE);
     }
@@ -85,8 +106,10 @@ public class CommonProxy {
 //        event.getRegistry().register(new ShapelessOreRecipe(new ResourceLocation(Constants.MODID + ":inkwell"), stack, new ItemStack(INKWELL), new ItemStack(Items.DYE, 1, 0)).setRegistryName(new ResourceLocation(Constants.MODID + ":inkwellrefill")));
 //    }
 
+    @SuppressWarnings("deprecation")
     public void preInit(FMLPreInitializationEvent e) {
         CompatModule.doModulesPreInit();
+        CapabilityManager.INSTANCE.register(IKnowledgeHandler.class, new KnowledgeStorage(), DefaultKnowledgeHandler.class);
         logger.info("Pre-Initilization");
     }
 
@@ -101,7 +124,7 @@ public class CommonProxy {
         logger.info("Post-Initilization");
     }
 
-    public void serverStart(FMLServerStartingEvent e){
+    public void serverStart(FMLServerStartingEvent e) {
         CompatModule.doModulesLoadComplete();
         logger.info("Server Start");
     }

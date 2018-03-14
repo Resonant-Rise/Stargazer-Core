@@ -1,5 +1,13 @@
 /*package se.resonantri.stargazerutil.common.blocks;
 
+<<<<<<< HEAD
+public enum ENUM_TTYPE{
+    SINGLE,
+    LEFT,
+    RIGHT
+}
+
+=======
 import net.minecraft.util.IStringSerializable;
 
 public enum ENUM_TTYPE implements IStringSerializable {
@@ -47,3 +55,4 @@ public enum ENUM_TTYPE implements IStringSerializable {
         return this.name;
     }
 }
+>>>>>>> master

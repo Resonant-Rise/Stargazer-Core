@@ -5,10 +5,7 @@ public final class NBTTagList {
     public static final String STONEBREAK = "nbt.research.stonebreak";
 
 
-
-
     //Theorem NBT
-
 
 
     //
